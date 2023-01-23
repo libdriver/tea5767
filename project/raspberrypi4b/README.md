@@ -1,10 +1,10 @@
-### 1. Chip
+### 1. Board
 
-#### 1.1 Chip Info
+#### 1.1 Board Info
 
-chip name : Raspberry Pi 4B.
+Board Name: Raspberry Pi 4B.
 
-iic pin: SCL/SDA GPIO3/GPIO2.
+IIC Pin: SCL/SDA GPIO3/GPIO2.
 
 ### 2. Install
 
@@ -74,7 +74,89 @@ Find the compiled library in CMake.
 find_package(tea5767 REQUIRED)
 ```
 
-#### 2.4 How to run
+### 3. TEA5767
+
+#### 3.1 Command Instruction
+
+1. Show tea5767 chip and driver information.
+
+   ```shell
+   tea5767 (-i | --information)
+   ```
+
+2. Show tea5767 help.
+
+   ```shell
+   tea5767 (-h | --help)
+   ```
+
+3. Show tea5767 pin connections of the current board.
+
+   ```shell
+   tea5767 (-p | --port)
+   ```
+
+4. Run tea5767 register test.
+
+   ```shell
+   tea5767 (-t reg | --test=reg)
+   ```
+
+5. Run tea5767 radio test.
+
+   ```shell
+   tea5767 (-t radio | --test=radio) [--crystal=<13MHz | 6.5MHz | 32.768KHz>]
+   ```
+
+6. Run tea5767 init function.
+
+   ```shell
+   tea5767 (-e init | --example=init)
+   ```
+
+7. Run tea5767 deinit function.
+
+   ```shell
+   tea5767 (-e deinit | --example=deinit)
+   ```
+
+8. Run tea5767 search up function.
+
+   ```shell
+   tea5767 (-e up | --example=up)
+   ```
+
+9. Run tea5767 search down function.
+
+   ```shell
+   tea5767 (-e down | --example=down)
+   ```
+
+10. Run tea5767 mute function.
+
+    ```shell
+    tea5767 (-e mute | --example=mute)
+    ```
+
+11. Run tea5767 disable mute function.
+
+    ```shell
+    tea5767 (-e no-mute | --example=no-mute)
+    ```
+
+12. Run tea5767 set the frequency function, MHz is the set frequency.
+
+    ```shell
+    tea5767 (-e set | --example=set) --freq=<MHz>
+    ```
+
+13. Run tea5767 get the current frequency function.
+
+    ```shell
+    tea5767 (-e get | --example=get)
+    ```
+
+#### 3.2 How to run
 
 ```shell
 # open one terminal and run the server
@@ -85,44 +167,7 @@ find_package(tea5767 REQUIRED)
 ./tea5767 xxx xxx xxx ...
 ```
 
-
-### 3. TEA5767
-
-#### 3.1 Command Instruction
-
-​           tea5767 is a basic command which can test all tea5767 driver function:
-
-​           -i        show tea5767 chip and driver information.
-
-​           -h       show tea5767 help.
-
-​           -p       show tea5767 pin connections of the current board.
-
-​           -t  (reg | radio -f (13MHz | 6.5MHz | 32.768KHz))
-
-​           -t reg       run tea5767 register test. 
-
-​           -t radio -f (13MHz | 6.5MHz | 32.768KHz)        run tea5767 radio test.
-
-​           -c basic (-init | -deinit | -up | -down | -mute | -no-mute | -get | -set <freq>)
-
-​           -c basic -init         tea5767 init function.
-
-​           -c basic -deinit         tea5767 deinit function.
-
-​           -c basic -up         tea5767 search up function.
-
-​           -c basic -down         tea5767 search down function.
-
-​           -c basic -mute         tea5767 mute function.
-
-​           -c basic -no-mute         tea5767 disable mute function.
-
-​           -c basic -set <freq>         tea5767 set the frequency function.freq is the set frequency.
-
-​           -c basic -get         tea5767 get the current frequency function.
-
-#### 3.2 Command Example
+#### 3.3 Command Example
 
 ```shell
 ./tea5767 -i
@@ -169,7 +214,7 @@ tea5767: check mode ok.
 tea5767: set normal mode.
 tea5767: check mode ok.
 tea5767: tea5767_set_pll/tea5767_get_pll test.
-tea5767: set pll 0x03FD.
+tea5767: set pll 0x02F2.
 tea5767: check pll ok.
 tea5767: tea5767_set_search_mode/tea5767_get_search_mode test.
 tea5767: set search mode down.
@@ -260,21 +305,21 @@ tea5767: flag is 0x00.
 tea5767: tea5767_get_band_limit_flag test.
 tea5767: flag is 0x00.
 tea5767: tea5767_get_searched_pll test.
-tea5767: pll is 0x2A00.
+tea5767: pll is 0x3FF9.
 tea5767: tea5767_get_if test.
-tea5767: if is 0x39.
+tea5767: if is 0x00.
 tea5767: tea5767_get_reception test.
 tea5767: reception is 0x00.
 tea5767: tea5767_get_level_adc_output test.
 tea5767: level adc output is 0x01.
 tea5767: tea5767_frequency_convert_to_register/tea5767_frequency_convert_to_data test.
-tea5767: frequency is 89.3.
-tea5767: check frequency is 89.3.
+tea5767: frequency is 89.7.
+tea5767: check frequency is 89.7.
 tea5767: finish register test.
 ```
 
 ```shell
-./tea5767 -t radio -f 32.768KHz
+./tea5767 -t radio --crystal=32.768KHz
 
 tea5767: chip is NXP TEA5767.
 tea5767: manufacturer is NXP.
@@ -289,59 +334,58 @@ tea5767: start radio test.
 tea5767: band found.
 tea5767: searched pll is 0x2A30.
 tea5767: searched frequency is 88.73MHz.
-tea5767: if is 0x3B.
-tea5767: reception is stereo.
-tea5767: adc output level is 0x0A.
+tea5767: if is 0x3A.
+tea5767: reception is mono.
+tea5767: adc output level is 0x09.
 tea5767: play 20s.
-tea5767: finish radio test.
 ```
 
 ```shell
-./tea5767 -c basic -init
+./tea5767 -e init
 
 tea5767: init successful.
 ```
 
 ```shell
-./tea5767 -c basic -deinit
+./tea5767 -e deinit
 
 tea5767: deinit successful.
 ```
 
 ```shell
-./tea5767 -c basic -up
+./tea5767 -e up
 
 tea5767: search up successful.
-tea5767: frequency is 88.66MHz.
+tea5767: frequency is 87.56MHz.
 ```
 
 ```shell
-./tea5767 -c basic -down
+./tea5767 -e down
 
 tea5767: search down successful.
 tea5767: frequency is 87.56MHz.
 ```
 
 ```shell
-./tea5767 -c basic -mute
+./tea5767 -e mute
 
 tea5767: mute successful.
 ```
 
 ```shell
-./tea5767 -c basic -no-mute
+./tea5767 -e no-mute
 
 tea5767: disable mute successful.
 ```
 
 ```shell
-./tea5767 -c basic -get
+./tea5767 -e get
 
-tea5767: frequency is 90.56MHz.
+tea5767: frequency is 87.56MHz.
 ```
 
 ```shell
-./tea5767 -c basic -set 88.73
+./tea5767 -e set --freq=88.73
 
 tea5767: set frequency 88.73MHz.
 ```
@@ -349,31 +393,32 @@ tea5767: set frequency 88.73MHz.
 ```shell
 ./tea5767 -h
 
-tea5767 -i
-	show tea5767 chip and driver information.
-tea5767 -h
-	show tea5767 help.
-tea5767 -p
-	show tea5767 pin connections of the current board.
-tea5767 -t reg
-	run tea5767 register test.
-tea5767 -t radio -f (13MHz | 6.5MHz | 32.768KHz)
-	run tea5767 radio test.
-tea5767 -c basic -init
-	tea5767 init function.
-tea5767 -c basic -deinit
-	tea5767 deinit function.
-tea5767 -c basic -up
-	tea5767 search up function.
-tea5767 -c basic -down
-	tea5767 search down function.
-tea5767 -c basic -mute
-	tea5767 mute function.
-tea5767 -c basic -no-mute
-	tea5767 disable mute function.
-tea5767 -c basic -set <freq>
-	tea5767 set the frequency function.freq is the set frequency.
-tea5767 -c basic -get
-	tea5767 get the current frequency function.
+Usage:
+  tea5767 (-i | --information)
+  tea5767 (-h | --help)
+  tea5767 (-p | --port)
+  tea5767 (-t reg | --test=reg)
+  tea5767 (-t radio | --test=radio) [--crystal=<13MHz | 6.5MHz | 32.768KHz>]
+  tea5767 (-e init | --example=init)
+  tea5767 (-e deinit | --example=deinit)
+  tea5767 (-e up | --example=up)
+  tea5767 (-e down | --example=down)
+  tea5767 (-e mute | --example=mute)
+  tea5767 (-e no-mute | --example=no-mute)
+  tea5767 (-e set | --example=set) --freq=<MHz>
+  tea5767 (-e get | --example=get)
+
+Options:
+      --crystal=<13MHz | 6.5MHz | 32.768KHz>
+                          Set the crystal frequence.([default: 32.768KHz])
+  -e <init | deinit | up | down | mute | no-mute | set | get>, --example=<init
+     | deinit | up | down | mute | no-mute | set | get>
+                          Run the driver example.
+      --freq=<MHz>        Set the frequence in MHz.
+  -h, --help              Show the help.
+  -i, --information       Show the chip information.
+  -p, --port              Display the pin connections of the current board.
+  -t <reg | radio>, --test=<reg | radio>
+                          Run the driver test.
 ```
 

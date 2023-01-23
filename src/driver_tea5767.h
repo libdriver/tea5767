@@ -162,10 +162,10 @@ typedef enum
  */
 typedef struct tea5767_handle_s
 {
-    uint8_t (*iic_init)(void);                                                 /**< point to a iic_init function address */
-    uint8_t (*iic_deinit)(void);                                               /**< point to a iic_deinit function address */
-    uint8_t (*iic_read_cmd)(uint8_t addr, uint8_t *buf, uint16_t len);         /**< point to a iic_read_cmd function address */
-    uint8_t (*iic_write_cmd)(uint8_t addr, uint8_t *buf, uint16_t len);        /**< point to a iic_write_cmd function address */
+    uint8_t (*iic_init)(void);                                                 /**< point to an iic_init function address */
+    uint8_t (*iic_deinit)(void);                                               /**< point to an iic_deinit function address */
+    uint8_t (*iic_read_cmd)(uint8_t addr, uint8_t *buf, uint16_t len);         /**< point to an iic_read_cmd function address */
+    uint8_t (*iic_write_cmd)(uint8_t addr, uint8_t *buf, uint16_t len);        /**< point to an iic_write_cmd function address */
     void (*delay_ms)(uint32_t ms);                                             /**< point to a delay_ms function address */
     void (*debug_print)(const char *const fmt, ...);                           /**< point to a debug_print function address */
     uint8_t inited;                                                            /**< inited flag */
@@ -211,7 +211,7 @@ typedef struct tea5767_info_s
 /**
  * @brief     link iic_init function
  * @param[in] HANDLE points to a tea5767 handle structure
- * @param[in] FUC points to a iic_init function address
+ * @param[in] FUC points to an iic_init function address
  * @note      none
  */
 #define DRIVER_TEA5767_LINK_IIC_INIT(HANDLE, FUC)            (HANDLE)->iic_init = FUC
@@ -219,7 +219,7 @@ typedef struct tea5767_info_s
 /**
  * @brief     link iic_deinit function
  * @param[in] HANDLE points to a tea5767 handle structure
- * @param[in] FUC points to a iic_deinit function address
+ * @param[in] FUC points to an iic_deinit function address
  * @note      none
  */
 #define DRIVER_TEA5767_LINK_IIC_DEINIT(HANDLE, FUC)          (HANDLE)->iic_deinit = FUC
@@ -227,7 +227,7 @@ typedef struct tea5767_info_s
 /**
  * @brief     link iic_read_cmd function
  * @param[in] HANDLE points to a tea5767 handle structure
- * @param[in] FUC points to a iic_read_cmd function address
+ * @param[in] FUC points to an iic_read_cmd function address
  * @note      none
  */
 #define DRIVER_TEA5767_LINK_IIC_READ_COMMAND(HANDLE, FUC)    (HANDLE)->iic_read_cmd = FUC
@@ -235,7 +235,7 @@ typedef struct tea5767_info_s
 /**
  * @brief     link iic_write_cmd function
  * @param[in] HANDLE points to a tea5767 handle structure
- * @param[in] FUC points to a iic_write_cmd function address
+ * @param[in] FUC points to an iic_write_cmd function address
  * @note      none
  */
 #define DRIVER_TEA5767_LINK_IIC_WRITE_COMMAND(HANDLE, FUC)   (HANDLE)->iic_write_cmd = FUC
@@ -475,7 +475,7 @@ uint8_t tea5767_set_side_injection(tea5767_handle_t *handle, tea5767_side_inject
 /**
  * @brief      get the side injection
  * @param[in]  *handle points to a tea5767 handle structure
- * @param[out] *side points to a injection side buffer
+ * @param[out] *side points to an injection side buffer
  * @return     status code
  *             - 0 success
  *             - 2 handle is NULL
@@ -763,7 +763,7 @@ uint8_t tea5767_set_de_emphasis(tea5767_handle_t *handle, tea5767_de_emphasis_t 
 /**
  * @brief      get the de emphasis status
  * @param[in]  *handle points to a tea5767 handle structure
- * @param[out] *emphasis points to a emphasis buffer
+ * @param[out] *emphasis points to an emphasis buffer
  * @return     status code
  *             - 0 success
  *             - 2 handle is NULL

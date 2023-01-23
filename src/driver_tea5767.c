@@ -609,7 +609,7 @@ uint8_t tea5767_set_side_injection(tea5767_handle_t *handle, tea5767_side_inject
 /**
  * @brief      get the side injection
  * @param[in]  *handle points to a tea5767 handle structure
- * @param[out] *side points to a injection side buffer
+ * @param[out] *side points to an injection side buffer
  * @return     status code
  *             - 0 success
  *             - 2 handle is NULL
@@ -1245,7 +1245,7 @@ uint8_t tea5767_set_de_emphasis(tea5767_handle_t *handle, tea5767_de_emphasis_t 
 /**
  * @brief      get the de emphasis status
  * @param[in]  *handle points to a tea5767 handle structure
- * @param[out] *emphasis points to a emphasis buffer
+ * @param[out] *emphasis points to an emphasis buffer
  * @return     status code
  *             - 0 success
  *             - 2 handle is NULL

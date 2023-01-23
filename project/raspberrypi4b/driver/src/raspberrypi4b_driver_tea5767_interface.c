@@ -46,7 +46,7 @@
 /**
  * @brief iic device hanble definition
  */
-static int gs_iic_fd;                       /**< iic handle */
+static int gs_fd;                       /**< iic handle */
 
 /**
  * @brief  interface iic bus init
@@ -57,7 +57,7 @@ static int gs_iic_fd;                       /**< iic handle */
  */
 uint8_t tea5767_interface_iic_init(void)
 {
-    return iic_init(IIC_DEVICE_NAME, &gs_iic_fd);
+    return iic_init(IIC_DEVICE_NAME, &gs_fd);
 }
 
 /**
@@ -69,7 +69,7 @@ uint8_t tea5767_interface_iic_init(void)
  */
 uint8_t tea5767_interface_iic_deinit(void)
 {
-    return iic_deinit(gs_iic_fd);
+    return iic_deinit(gs_fd);
 }
 
 /**
@@ -84,7 +84,7 @@ uint8_t tea5767_interface_iic_deinit(void)
  */
 uint8_t tea5767_interface_iic_write_cmd(uint8_t addr, uint8_t *buf, uint16_t len)
 {
-    return iic_write_cmd(gs_iic_fd, addr, buf, len);
+    return iic_write_cmd(gs_fd, addr, buf, len);
 }
 
 /**
@@ -99,7 +99,7 @@ uint8_t tea5767_interface_iic_write_cmd(uint8_t addr, uint8_t *buf, uint16_t len
  */
 uint8_t tea5767_interface_iic_read_cmd(uint8_t addr, uint8_t *buf, uint16_t len)
 {
-    return iic_read_cmd(gs_iic_fd, addr, buf, len);
+    return iic_read_cmd(gs_fd, addr, buf, len);
 }
 
 /**
@@ -123,11 +123,11 @@ void tea5767_interface_debug_print(const char *const fmt, ...)
     uint8_t len;
     va_list args;
     
-    memset((char *)str, 0, sizeof(char)*256); 
+    memset((char *)str, 0, sizeof(char) * 256); 
     va_start(args, fmt);
     vsnprintf((char *)str, 256, (char const *)fmt, args);
     va_end(args);
-        
+    
     len = strlen((char *)str);
     (void)printf((uint8_t *)str, len);
 }
