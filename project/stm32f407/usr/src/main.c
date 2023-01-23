@@ -41,13 +41,14 @@
 #include "clock.h"
 #include "delay.h"
 #include "uart.h"
+#include "getopt.h"
 #include <stdlib.h>
 
 /**
  * @brief global var definition
  */
 uint8_t g_buf[256];        /**< uart buffer */
-uint16_t g_len;            /**< uart buffer length */
+volatile uint16_t g_len;   /**< uart buffer length */
 
 /**
  * @brief     tea5767 full function
@@ -61,322 +62,362 @@ uint16_t g_len;            /**< uart buffer length */
  */
 uint8_t tea5767(uint8_t argc, char **argv)
 {
+    int c;
+    int longindex = 0;
+    const char short_options[] = "hipe:t:";
+    const struct option long_options[] =
+    {
+        {"help", no_argument, NULL, 'h'},
+        {"information", no_argument, NULL, 'i'},
+        {"port", no_argument, NULL, 'p'},
+        {"example", required_argument, NULL, 'e'},
+        {"test", required_argument, NULL, 't'},
+        {"crystal", required_argument, NULL, 1},
+        {"freq", required_argument, NULL, 2},
+        {NULL, 0, NULL, 0},
+    };
+    char type[32] = "unknow";
+    tea5767_clock_t crystal = TEA5767_CLOCK_32P768_KHZ;
+    float freq = 0.0f;
+    uint8_t freq_flag = 0;
+    
+    /* if no params */
     if (argc == 1)
     {
+        /* goto the help */
         goto help;
     }
-    else if (argc == 2)
+    
+    /* init 0 */
+    optind = 0;
+    
+    /* parse */
+    do
     {
-        if (strcmp("-i", argv[1]) == 0)
+        /* parse the args */
+        c = getopt_long(argc, argv, short_options, long_options, &longindex);
+        
+        /* judge the result */
+        switch (c)
         {
-            tea5767_info_t info;
-            
-            /* print tea5767 info */
-            tea5767_info(&info);
-            tea5767_interface_debug_print("tea5767: chip is %s.\n", info.chip_name);
-            tea5767_interface_debug_print("tea5767: manufacturer is %s.\n", info.manufacturer_name);
-            tea5767_interface_debug_print("tea5767: interface is %s.\n", info.interface);
-            tea5767_interface_debug_print("tea5767: driver version is %d.%d.\n", info.driver_version / 1000, (info.driver_version % 1000) / 100);
-            tea5767_interface_debug_print("tea5767: min supply voltage is %0.1fV.\n", info.supply_voltage_min_v);
-            tea5767_interface_debug_print("tea5767: max supply voltage is %0.1fV.\n", info.supply_voltage_max_v);
-            tea5767_interface_debug_print("tea5767: max current is %0.2fmA.\n", info.max_current_ma);
-            tea5767_interface_debug_print("tea5767: max temperature is %0.1fC.\n", info.temperature_max);
-            tea5767_interface_debug_print("tea5767: min temperature is %0.1fC.\n", info.temperature_min);
-            
-            return 0;
-        }
-        else if (strcmp("-p", argv[1]) == 0)
-        {
-            /* print pin connection */
-            tea5767_interface_debug_print("tea5767: SCL connected to GPIOB PIN8.\n");
-            tea5767_interface_debug_print("tea5767: SDA connected to GPIOB PIN9.\n");
-            
-            return 0;
-        }
-        else if (strcmp("-h", argv[1]) == 0)
-        {
-            /* show tea5767 help */
-            
-            help:
-            tea5767_interface_debug_print("tea5767 -i\n\tshow tea5767 chip and driver information.\n");
-            tea5767_interface_debug_print("tea5767 -h\n\tshow tea5767 help.\n");
-            tea5767_interface_debug_print("tea5767 -p\n\tshow tea5767 pin connections of the current board.\n");
-            tea5767_interface_debug_print("tea5767 -t reg\n\trun tea5767 register test.\n");
-            tea5767_interface_debug_print("tea5767 -t radio -f (13MHz | 6.5MHz | 32.768KHz)\n\trun tea5767 radio test.\n");
-            tea5767_interface_debug_print("tea5767 -c basic -init\n\ttea5767 init function.\n");
-            tea5767_interface_debug_print("tea5767 -c basic -deinit\n\ttea5767 deinit function.\n");
-            tea5767_interface_debug_print("tea5767 -c basic -up\n\ttea5767 search up function.\n");
-            tea5767_interface_debug_print("tea5767 -c basic -down\n\ttea5767 search down function.\n");
-            tea5767_interface_debug_print("tea5767 -c basic -mute\n\ttea5767 mute function.\n");
-            tea5767_interface_debug_print("tea5767 -c basic -no-mute\n\ttea5767 disable mute function.\n");
-            tea5767_interface_debug_print("tea5767 -c basic -set <freq>\n\ttea5767 set the frequency function.freq is the set frequency.\n");
-            tea5767_interface_debug_print("tea5767 -c basic -get\n\ttea5767 get the current frequency function.\n");
-            
-            return 0;
-        }
-        else
-        {
-            return 5;
-        }
-    }
-    else if (argc == 3)
-    {
-        /* run test */
-        if (strcmp("-t", argv[1]) == 0)
-        {
-             /* reg test */
-            if (strcmp("reg", argv[2]) == 0)
+            /* help */
+            case 'h' :
             {
-                /* run reg test */
-                if (tea5767_register_test() != 0)
-                {
-                    return 1;
-                }
-                else
-                {
-                    return 0;
-                }
+                /* set the type */
+                memset(type, 0, sizeof(char) * 32);
+                snprintf(type, 32, "h");
+                
+                break;
             }
-            /* param is invalid */
-            else
+            
+            /* information */
+            case 'i' :
             {
-                return 5;
+                /* set the type */
+                memset(type, 0, sizeof(char) * 32);
+                snprintf(type, 32, "i");
+                
+                break;
             }
-        }
-        /* param is invalid */
-        else
-        {
-            return 5;
-        }
-    }
-    else if (argc == 4)
-    {
-        /* run function */
-        if (strcmp("-c", argv[1]) == 0)
-        {
-             /* basic function */
-            if (strcmp("basic", argv[2]) == 0)
+            
+            /* port */
+            case 'p' :
             {
-                 /* init function */
-                if (strcmp("-init", argv[3]) == 0)
+                /* set the type */
+                memset(type, 0, sizeof(char) * 32);
+                snprintf(type, 32, "p");
+                
+                break;
+            }
+            
+            /* example */
+            case 'e' :
+            {
+                /* set the type */
+                memset(type, 0, sizeof(char) * 32);
+                snprintf(type, 32, "e_%s", optarg);
+                
+                break;
+            }
+            
+            /* test */
+            case 't' :
+            {
+                /* set the type */
+                memset(type, 0, sizeof(char) * 32);
+                snprintf(type, 32, "t_%s", optarg);
+                
+                break;
+            }
+            
+            /* crystal */
+            case 1 :
+            {
+                /* set the crystal */
+                if (strcmp("13MHz", optarg) == 0)
                 {
-                    if (tea5767_basic_init() != 0)
-                    {
-                        return 1;
-                    }
-                    else
-                    {
-                        tea5767_interface_debug_print("tea5767: init successful.\n");
-                        
-                        return 0;
-                    }
+                    crystal = TEA5767_CLOCK_13_MHZ;
                 }
-                /* deinit function */
-                else if (strcmp("-deinit", argv[3]) == 0)
+                else if (strcmp("32.768KHz", optarg) == 0)
                 {
-                    if (tea5767_basic_deinit() != 0)
-                    {
-                        return 1;
-                    }
-                    else
-                    {
-                        tea5767_interface_debug_print("tea5767: deinit successful.\n");
-                        
-                        return 0;
-                    }
+                    crystal = TEA5767_CLOCK_32P768_KHZ;
                 }
-                /* up function */
-                else if (strcmp("-up", argv[3]) == 0)
+                else if (strcmp("6.5MHz", optarg) == 0)
                 {
-                    float mhz;
-                    
-                    if (tea5767_basic_search_up() != 0)
-                    {
-                        return 1;
-                    }
-                    else
-                    {
-                        if (tea5767_basic_get_frequency(&mhz) != 0)
-                        {
-                            return 1;
-                        }
-                        tea5767_interface_debug_print("tea5767: search up successful.\n");
-                        tea5767_interface_debug_print("tea5767: frequency is %0.2fMHz.\n", mhz);
-                        
-                        return 0;
-                    }
-                }
-                /* down function */
-                else if (strcmp("-down", argv[3]) == 0)
-                {
-                    float mhz;
-                    
-                    if (tea5767_basic_search_down() != 0)
-                    {
-                        return 1;
-                    }
-                    else
-                    {
-                        if (tea5767_basic_get_frequency(&mhz) != 0)
-                        {
-                            return 1;
-                        }
-                        tea5767_interface_debug_print("tea5767: search down successful.\n");
-                        tea5767_interface_debug_print("tea5767: frequency is %0.2fMHz.\n", mhz);
-                        
-                        return 0;
-                    }
-                }
-                /* mute function */
-                else if (strcmp("-mute", argv[3]) == 0)
-                {
-                    if (tea5767_basic_set_mute(TEA5767_BOOL_TRUE) != 0)
-                    {
-                        return 1;
-                    }
-                    else
-                    {
-                        tea5767_interface_debug_print("tea5767: mute successful.\n");
-                        
-                        return 0;
-                    }
-                }
-                /* no-mute function */
-                else if (strcmp("-no-mute", argv[3]) == 0)
-                {
-                    if (tea5767_basic_set_mute(TEA5767_BOOL_FALSE) != 0)
-                    {
-                        return 1;
-                    }
-                    else
-                    {
-                        tea5767_interface_debug_print("tea5767: disable mute successful.\n");
-                        
-                        return 0;
-                    }
-                }
-                /* get */
-                else if (strcmp("-get", argv[3]) == 0)
-                {
-                    float mhz;
-                    
-                    if (tea5767_basic_get_frequency(&mhz) != 0)
-                    {
-                        return 1;
-                    }
-                    else
-                    {
-                        tea5767_interface_debug_print("tea5767: frequency is %0.2fMHz.\n", mhz);
-                        
-                        return 0;
-                    }
+                    crystal = TEA5767_CLOCK_6P5_MHZ;
                 }
                 else
                 {
                     return 5;
                 }
+                
+                break;
             }
-            /* param is invalid */
-            else
+            
+            /* freq */
+            case 2 :
+            {
+                /* set the freq */
+                freq = (float)atof(optarg);
+                freq_flag = 1;
+                
+                break;
+            }
+            
+            /* the end */
+            case -1 :
+            {
+                break;
+            }
+            
+            /* others */
+            default :
             {
                 return 5;
             }
         }
-        /* param is invalid */
-        else
-        {
-            return 5;
-        }
-    }
-    else if (argc == 5)
+    } while (c != -1);
+
+    /* run the function */
+    if (strcmp("t_reg", type) == 0)
     {
-        /* run test */
-        if (strcmp("-t", argv[1]) == 0)
+        /* run reg test */
+        if (tea5767_register_test() != 0)
         {
-             /* radio test */
-            if (strcmp("radio", argv[2]) == 0)
-            {
-                /* check -f */
-                if (strcmp("-f", argv[3]) == 0)
-                {
-                    tea5767_clock_t clk;
-                    
-                    if (strcmp("13MHz", argv[4]) == 0)
-                    {
-                        clk = TEA5767_CLOCK_13_MHZ;
-                    }
-                    else if (strcmp("6.5MHz", argv[4]) == 0)
-                    {
-                        clk = TEA5767_CLOCK_6P5_MHZ;
-                    }
-                    else if (strcmp("32.768KHz", argv[4]) == 0)
-                    {
-                        clk = TEA5767_CLOCK_32P768_KHZ;
-                    }
-                    else
-                    {
-                        return 5;
-                    }
-                    
-                    /* run radio test */
-                    if (tea5767_radio_test(clk) != 0)
-                    {
-                        return 1;
-                    }
-                    else
-                    {
-                        return 0;
-                    }
-                }
-                /* param is invalid */
-                else
-                {
-                    return 5;
-                }
-            }
-            /* param is invalid */
-            else
-            {
-                return 5;
-            }
+            return 1;
         }
-        /* run function */
-        else if (strcmp("-c", argv[1]) == 0)
-        {
-             /* basic function */
-            if (strcmp("basic", argv[2]) == 0)
-            {
-                 /* set function */
-                if (strcmp("-set", argv[3]) == 0)
-                {
-                    if (tea5767_basic_set_frequency((float)atof(argv[4])) != 0)
-                    {
-                        return 1;
-                    }
-                    else
-                    {
-                        tea5767_interface_debug_print("tea5767: set frequency %0.2fMHz.\n", atof(argv[4]));
-                        
-                        return 0;
-                    }
-                }
-                else
-                {
-                    return 5;
-                }
-            }
-            else
-            {
-                return 5;
-            }
-        }
-        /* param is invalid */
         else
+        {
+            return 0;
+        }
+    }
+    else if (strcmp("t_radio", type) == 0)
+    {
+        /* run radio test */
+        if (tea5767_radio_test(crystal) != 0)
+        {
+            return 1;
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    else if (strcmp("e_init", type) == 0)
+    {
+        /* basic init */
+        if (tea5767_basic_init() != 0)
+        {
+            return 1;
+        }
+        else
+        {
+            tea5767_interface_debug_print("tea5767: init successful.\n");
+            
+            return 0;
+        }
+    }
+    else if (strcmp("e_deinit", type) == 0)
+    {
+        /* basic deinit */
+        if (tea5767_basic_deinit() != 0)
+        {
+            return 1;
+        }
+        else
+        {
+            tea5767_interface_debug_print("tea5767: deinit successful.\n");
+            
+            return 0;
+        }
+    }
+    else if (strcmp("e_up", type) == 0)
+    {
+        float mhz;
+        
+        /* basic up */
+        if (tea5767_basic_search_up() != 0)
+        {
+            return 1;
+        }
+        else
+        {
+            /* get freq */
+            if (tea5767_basic_get_frequency(&mhz) != 0)
+            {
+                return 1;
+            }
+            tea5767_interface_debug_print("tea5767: search up successful.\n");
+            tea5767_interface_debug_print("tea5767: frequency is %0.2fMHz.\n", mhz);
+            
+            return 0;
+        }
+    }
+    else if (strcmp("e_down", type) == 0)
+    {
+        float mhz;
+        
+        /* basic down */
+        if (tea5767_basic_search_down() != 0)
+        {
+            return 1;
+        }
+        else
+        {
+            /* get freq */
+            if (tea5767_basic_get_frequency(&mhz) != 0)
+            {
+                return 1;
+            }
+            tea5767_interface_debug_print("tea5767: search down successful.\n");
+            tea5767_interface_debug_print("tea5767: frequency is %0.2fMHz.\n", mhz);
+            
+            return 0;
+        }
+    }
+    else if (strcmp("e_mute", type) == 0)
+    {
+        /* mute */
+        if (tea5767_basic_set_mute(TEA5767_BOOL_TRUE) != 0)
+        {
+            return 1;
+        }
+        else
+        {
+            tea5767_interface_debug_print("tea5767: mute successful.\n");
+            
+            return 0;
+        }
+    }
+    else if (strcmp("e_no-mute", type) == 0)
+    {
+        /* not mute */
+        if (tea5767_basic_set_mute(TEA5767_BOOL_FALSE) != 0)
+        {
+            return 1;
+        }
+        else
+        {
+            tea5767_interface_debug_print("tea5767: disable mute successful.\n");
+            
+            return 0;
+        }
+    }
+    else if (strcmp("e_get", type) == 0)
+    {
+        float mhz;
+        
+        /* get freq */
+        if (tea5767_basic_get_frequency(&mhz) != 0)
+        {
+            return 1;
+        }
+        else
+        {
+            tea5767_interface_debug_print("tea5767: frequency is %0.2fMHz.\n", mhz);
+            
+            return 0;
+        }
+    }
+    else if (strcmp("e_set", type) == 0)
+    {
+        /* check the freq */
+        if (freq_flag != 1)
         {
             return 5;
         }
+        
+        /* set freq */
+        if (tea5767_basic_set_frequency(freq) != 0)
+        {
+            return 1;
+        }
+        else
+        {
+            tea5767_interface_debug_print("tea5767: set frequency %0.2fMHz.\n", freq);
+            
+            return 0;
+        }
     }
-    /* param is invalid */
+    else if (strcmp("h", type) == 0)
+    {
+        help:
+        tea5767_interface_debug_print("Usage:\n");
+        tea5767_interface_debug_print("  tea5767 (-i | --information)\n");
+        tea5767_interface_debug_print("  tea5767 (-h | --help)\n");
+        tea5767_interface_debug_print("  tea5767 (-p | --port)\n");
+        tea5767_interface_debug_print("  tea5767 (-t reg | --test=reg)\n");
+        tea5767_interface_debug_print("  tea5767 (-t radio | --test=radio) [--crystal=<13MHz | 6.5MHz | 32.768KHz>]\n");
+        tea5767_interface_debug_print("  tea5767 (-e init | --example=init)\n");
+        tea5767_interface_debug_print("  tea5767 (-e deinit | --example=deinit)\n");
+        tea5767_interface_debug_print("  tea5767 (-e up | --example=up)\n");
+        tea5767_interface_debug_print("  tea5767 (-e down | --example=down)\n");
+        tea5767_interface_debug_print("  tea5767 (-e mute | --example=mute)\n");
+        tea5767_interface_debug_print("  tea5767 (-e no-mute | --example=no-mute)\n");
+        tea5767_interface_debug_print("  tea5767 (-e set | --example=set) --freq=<MHz>\n");
+        tea5767_interface_debug_print("  tea5767 (-e get | --example=get)\n");
+        tea5767_interface_debug_print("\n");
+        tea5767_interface_debug_print("Options:\n");
+        tea5767_interface_debug_print("      --crystal=<13MHz | 6.5MHz | 32.768KHz>\n");
+        tea5767_interface_debug_print("                          Set the crystal frequence.([default: 32.768KHz])\n");
+        tea5767_interface_debug_print("  -e <init | deinit | up | down | mute | no-mute | set | get>, --example=<init\n");
+        tea5767_interface_debug_print("     | deinit | up | down | mute | no-mute | set | get>\n");
+        tea5767_interface_debug_print("                          Run the driver example.\n");
+        tea5767_interface_debug_print("      --freq=<MHz>        Set the frequence in MHz.\n");
+        tea5767_interface_debug_print("  -h, --help              Show the help.\n");
+        tea5767_interface_debug_print("  -i, --information       Show the chip information.\n");
+        tea5767_interface_debug_print("  -p, --port              Display the pin connections of the current board.\n");
+        tea5767_interface_debug_print("  -t <reg | radio>, --test=<reg | radio>\n");
+        tea5767_interface_debug_print("                          Run the driver test.\n");
+        
+        return 0;
+    }
+    else if (strcmp("i", type) == 0)
+    {
+        tea5767_info_t info;
+        
+        /* print tea5767 info */
+        tea5767_info(&info);
+        tea5767_interface_debug_print("tea5767: chip is %s.\n", info.chip_name);
+        tea5767_interface_debug_print("tea5767: manufacturer is %s.\n", info.manufacturer_name);
+        tea5767_interface_debug_print("tea5767: interface is %s.\n", info.interface);
+        tea5767_interface_debug_print("tea5767: driver version is %d.%d.\n", info.driver_version / 1000, (info.driver_version % 1000) / 100);
+        tea5767_interface_debug_print("tea5767: min supply voltage is %0.1fV.\n", info.supply_voltage_min_v);
+        tea5767_interface_debug_print("tea5767: max supply voltage is %0.1fV.\n", info.supply_voltage_max_v);
+        tea5767_interface_debug_print("tea5767: max current is %0.2fmA.\n", info.max_current_ma);
+        tea5767_interface_debug_print("tea5767: max temperature is %0.1fC.\n", info.temperature_max);
+        tea5767_interface_debug_print("tea5767: min temperature is %0.1fC.\n", info.temperature_min);
+        
+        return 0;
+    }
+    else if (strcmp("p", type) == 0)
+    {
+        /* print pin connection */
+        tea5767_interface_debug_print("tea5767: SCL connected to GPIOB PIN8.\n");
+        tea5767_interface_debug_print("tea5767: SDA connected to GPIOB PIN9.\n");
+        
+        return 0;
+    }
     else
     {
         return 5;
@@ -397,19 +438,19 @@ int main(void)
     /* delay init */
     delay_init();
     
-    /* uart1 init */
-    uart1_init(115200);
+    /* uart init */
+    uart_init(115200);
     
     /* shell init && register tea5767 fuction */
     shell_init();
     shell_register("tea5767", tea5767);
-    uart1_print("tea5767: welcome to libdriver tea5767.\n");
+    uart_print("tea5767: welcome to libdriver tea5767.\n");
     
     while (1)
     {
         /* read uart */
-        g_len = uart1_read(g_buf, 256);
-        if (g_len)
+        g_len = uart_read(g_buf, 256);
+        if (g_len != 0)
         {
             /* run shell */
             res = shell_parse((char *)g_buf, g_len);
@@ -419,29 +460,29 @@ int main(void)
             }
             else if (res == 1)
             {
-                uart1_print("tea5767: run failed.\n");
+                uart_print("tea5767: run failed.\n");
             }
             else if (res == 2)
             {
-                uart1_print("tea5767: unknow command.\n");
+                uart_print("tea5767: unknow command.\n");
             }
             else if (res == 3)
             {
-                uart1_print("tea5767: length is too long.\n");
+                uart_print("tea5767: length is too long.\n");
             }
             else if (res == 4)
             {
-                uart1_print("tea5767: pretreat failed.\n");
+                uart_print("tea5767: pretreat failed.\n");
             }
             else if (res == 5)
             {
-                uart1_print("tea5767: param is invalid.\n");
+                uart_print("tea5767: param is invalid.\n");
             }
             else
             {
-                uart1_print("tea5767: unknow status code.\n");
+                uart_print("tea5767: unknow status code.\n");
             }
-            uart1_flush();
+            uart_flush();
         }
         delay_ms(100);
     }
