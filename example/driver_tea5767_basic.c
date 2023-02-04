@@ -78,7 +78,7 @@ uint8_t tea5767_basic_init(void)
         return 1;
     }
     
-    /* set defualt mode */
+    /* set default mode */
     res = tea5767_set_mode(&gs_handle, TEA57671_BASIC_DEFAULT_MODE);
     if (res != 0)
     {
@@ -98,7 +98,7 @@ uint8_t tea5767_basic_init(void)
         return 1;
     }
     
-    /* set defualt pll */
+    /* set default pll */
     res = tea5767_set_pll(&gs_handle, pll);
     if (res != 0)
     {
@@ -108,7 +108,7 @@ uint8_t tea5767_basic_init(void)
         return 1;
     }
     
-    /* set defualt search mode */
+    /* set default search mode */
     res = tea5767_set_search_mode(&gs_handle, TEA57671_BASIC_DEFAULT_SEARCH_MODE);
     if (res != 0)
     {
@@ -118,7 +118,7 @@ uint8_t tea5767_basic_init(void)
         return 1;
     }
     
-    /* set defualt search stop level */
+    /* set default search stop level */
     res = tea5767_set_search_stop_level(&gs_handle, TEA57671_BASIC_DEFAULT_SEARCH_STOP_LEVEL);
     if (res != 0)
     {
@@ -128,7 +128,7 @@ uint8_t tea5767_basic_init(void)
         return 1;
     }
     
-    /* set defualt side injection */
+    /* set default side injection */
     res = tea5767_set_side_injection(&gs_handle, TEA57671_BASIC_DEFAULT_SIDE_INJECTION);
     if (res != 0)
     {
@@ -138,7 +138,7 @@ uint8_t tea5767_basic_init(void)
         return 1;
     }
     
-    /* set defualt channel */
+    /* set default channel */
     res = tea5767_set_channel(&gs_handle, TEA57671_BASIC_DEFAULT_CHANNEL);
     if (res != 0)
     {
@@ -148,7 +148,7 @@ uint8_t tea5767_basic_init(void)
         return 1;
     }
     
-    /* set defualt right mute */
+    /* set default right mute */
     res = tea5767_set_right_mute(&gs_handle, TEA57671_BASIC_DEFAULT_RIGHT_MUTE);
     if (res != 0)
     {
@@ -158,7 +158,7 @@ uint8_t tea5767_basic_init(void)
         return 1;
     }
     
-    /* set defualt left mute */
+    /* set default left mute */
     res = tea5767_set_left_mute(&gs_handle,TEA57671_BASIC_DEFAULT_LEFT_MUTE);
     if (res != 0)
     {
@@ -168,7 +168,7 @@ uint8_t tea5767_basic_init(void)
         return 1;
     }
     
-    /* set defualt port1 */
+    /* set default port1 */
     res = tea5767_set_port1(&gs_handle, TEA57671_BASIC_DEFAULT_PORT1);
     if (res != 0)
     {
@@ -178,7 +178,7 @@ uint8_t tea5767_basic_init(void)
         return 1;
     }
     
-    /* set defualt port2 */
+    /* set default port2 */
     res = tea5767_set_port2(&gs_handle, TEA57671_BASIC_DEFAULT_PORT2);
     if (res != 0)
     {
@@ -198,7 +198,7 @@ uint8_t tea5767_basic_init(void)
         return 1;
     }
     
-    /* set defualt band */
+    /* set default band */
     res = tea5767_set_band(&gs_handle, TEA57671_BASIC_DEFAULT_BAND);
     if (res != 0)
     {
@@ -208,7 +208,7 @@ uint8_t tea5767_basic_init(void)
         return 1;
     }
     
-    /* set defualt soft mute */
+    /* set default soft mute */
     res = tea5767_set_soft_mute(&gs_handle, TEA57671_BASIC_DEFAULT_SOFT_MUTE);
     if (res != 0)
     {
@@ -218,7 +218,7 @@ uint8_t tea5767_basic_init(void)
         return 1;
     }
     
-    /* set defualt high cut control */
+    /* set default high cut control */
     res = tea5767_set_high_cut_control(&gs_handle, TEA57671_BASIC_DEFAULT_HIGH_CUT_CONTROL);
     if (res != 0)
     {
@@ -228,7 +228,7 @@ uint8_t tea5767_basic_init(void)
         return 1;
     }
     
-    /* set defualt stereo noise cancelling */
+    /* set default stereo noise cancelling */
     res = tea5767_set_stereo_noise_cancelling(&gs_handle, TEA57671_BASIC_DEFAULT_STEREO_NOISE_CANCELING);
     if (res != 0)
     {
@@ -238,7 +238,7 @@ uint8_t tea5767_basic_init(void)
         return 1;
     }
     
-    /* set defualt port1 as search indicator */
+    /* set default port1 as search indicator */
     res = tea5767_set_port1_as_search_indicator(&gs_handle, TEA57671_BASIC_DEFAULT_PORT1_AS_SEARCH_INDICATOR);
     if (res != 0)
     {
@@ -248,7 +248,7 @@ uint8_t tea5767_basic_init(void)
         return 1;
     }
     
-    /* set defualt de emphasis */
+    /* set default de emphasis */
     res = tea5767_set_de_emphasis(&gs_handle, TEA57671_BASIC_DEFAULT_DE_EMPHASIS);
     if (res != 0)
     {

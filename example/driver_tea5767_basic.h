@@ -61,7 +61,7 @@ extern "C"{
 #define TEA57671_BASIC_DEFAULT_SIDE_INJECTION                   TEA5767_SIDE_INJECTION_HIGH          /**< side injection high */
 #define TEA57671_BASIC_DEFAULT_CHANNEL                          TEA5767_CHANNEL_STEREO               /**< stereo */
 #define TEA57671_BASIC_DEFAULT_RIGHT_MUTE                       TEA5767_BOOL_FALSE                   /**< disable right mute */
-#define TEA57671_BASIC_DEFAULT_LEFT_MUTE                        TEA5767_BOOL_FALSE                   /**< disale left mute */
+#define TEA57671_BASIC_DEFAULT_LEFT_MUTE                        TEA5767_BOOL_FALSE                   /**< disable left mute */
 #define TEA57671_BASIC_DEFAULT_PORT1                            TEA5767_LEVEL_LOW                    /**< port1 low */
 #define TEA57671_BASIC_DEFAULT_PORT2                            TEA5767_LEVEL_LOW                    /**< port2 low */
 #define TEA57671_BASIC_DEFAULT_BAND                             TEA5767_BAND_JAPANESE                /**< Japanese band */
