@@ -76,7 +76,7 @@ uint8_t tea5767(uint8_t argc, char **argv)
         {"freq", required_argument, NULL, 2},
         {NULL, 0, NULL, 0},
     };
-    char type[33] = "unknow";
+    char type[33] = "unknown";
     tea5767_clock_t crystal = TEA5767_CLOCK_32P768_KHZ;
     float freq = 0.0f;
     uint8_t freq_flag = 0;
@@ -441,7 +441,7 @@ int main(void)
     /* uart init */
     uart_init(115200);
     
-    /* shell init && register tea5767 fuction */
+    /* shell init && register tea5767 function */
     shell_init();
     shell_register("tea5767", tea5767);
     uart_print("tea5767: welcome to libdriver tea5767.\n");
@@ -464,7 +464,7 @@ int main(void)
             }
             else if (res == 2)
             {
-                uart_print("tea5767: unknow command.\n");
+                uart_print("tea5767: unknown command.\n");
             }
             else if (res == 3)
             {
@@ -480,7 +480,7 @@ int main(void)
             }
             else
             {
-                uart_print("tea5767: unknow status code.\n");
+                uart_print("tea5767: unknown status code.\n");
             }
             uart_flush();
         }

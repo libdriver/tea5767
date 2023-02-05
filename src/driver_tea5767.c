@@ -345,7 +345,7 @@ uint8_t tea5767_get_mute(tea5767_handle_t *handle, tea5767_bool_t *enable)
         return 3;                                                        /* return error */
     }
     
-    *enable = (tea5767_bool_t)((handle->conf_up[0] >> 7) & 0x01);        /* get the setttings */
+    *enable = (tea5767_bool_t)((handle->conf_up[0] >> 7) & 0x01);        /* get the settings */
     
     return 0;                                                            /* success return 0 */
 }
@@ -398,7 +398,7 @@ uint8_t tea5767_get_mode(tea5767_handle_t *handle, tea5767_mode_t *mode)
         return 3;                                                      /* return error */
     }
     
-    *mode = (tea5767_mode_t)((handle->conf_up[0] >> 6) & 0x01);        /* get setttings */
+    *mode = (tea5767_mode_t)((handle->conf_up[0] >> 6) & 0x01);        /* get settings */
     
     return 0;                                                          /* success return 0 */
 }
@@ -521,7 +521,7 @@ uint8_t tea5767_get_search_mode(tea5767_handle_t *handle, tea5767_search_mode_t 
         return 3;                                                             /* return error */
     }
     
-    *mode = (tea5767_search_mode_t)((handle->conf_up[2] >> 7) & 0x01);        /* get the setttings */
+    *mode = (tea5767_search_mode_t)((handle->conf_up[2] >> 7) & 0x01);        /* get the settings */
     
     return 0;                                                                 /* success return 0 */
 }
@@ -574,7 +574,7 @@ uint8_t tea5767_get_search_stop_level(tea5767_handle_t *handle, tea5767_search_s
         return 3;                                                                    /* return error */
     }
     
-    *level = (tea5767_search_stop_level_t)((handle->conf_up[2] >> 5) & 0x03);        /* get the setttings */
+    *level = (tea5767_search_stop_level_t)((handle->conf_up[2] >> 5) & 0x03);        /* get the settings */
     
     return 0;                                                                        /* success return 0 */
 }
@@ -627,7 +627,7 @@ uint8_t tea5767_get_side_injection(tea5767_handle_t *handle, tea5767_side_inject
         return 3;                                                                /* return error */
     }
     
-    *side = (tea5767_side_injection_t)((handle->conf_up[2] >> 4) & 0x01);        /* get the setttings */
+    *side = (tea5767_side_injection_t)((handle->conf_up[2] >> 4) & 0x01);        /* get the settings */
     
     return 0;                                                                    /* success return 0 */
 }
@@ -680,7 +680,7 @@ uint8_t tea5767_get_channel(tea5767_handle_t *handle, tea5767_channel_t *channel
         return 3;                                                            /* return error */
     }
     
-    *channel = (tea5767_channel_t)((handle->conf_up[2] >> 3) & 0x01);        /* get the setttings */
+    *channel = (tea5767_channel_t)((handle->conf_up[2] >> 3) & 0x01);        /* get the settings */
     
     return 0;                                                                /* success return 0 */
 }
@@ -733,7 +733,7 @@ uint8_t tea5767_get_right_mute(tea5767_handle_t *handle, tea5767_bool_t *enable)
         return 3;                                                        /* return error */
     }
     
-    *enable = (tea5767_bool_t)((handle->conf_up[2] >> 2) & 0x01);        /* get the setttings */
+    *enable = (tea5767_bool_t)((handle->conf_up[2] >> 2) & 0x01);        /* get the settings */
     
     return 0;                                                            /* success return 0 */
 }
@@ -786,7 +786,7 @@ uint8_t tea5767_get_left_mute(tea5767_handle_t *handle, tea5767_bool_t *enable)
         return 3;                                                        /* return error */
     }
     
-    *enable = (tea5767_bool_t)((handle->conf_up[2] >> 1) & 0x01);        /* get the setttings */
+    *enable = (tea5767_bool_t)((handle->conf_up[2] >> 1) & 0x01);        /* get the settings */
     
     return 0;                                                            /* success return 0 */
 }
@@ -839,7 +839,7 @@ uint8_t tea5767_get_port1(tea5767_handle_t *handle, tea5767_level_t *level)
         return 3;                                                        /* return error */
     }
     
-    *level = (tea5767_level_t)((handle->conf_up[2] >> 0) & 0x01);        /* get the setttings */
+    *level = (tea5767_level_t)((handle->conf_up[2] >> 0) & 0x01);        /* get the settings */
     
     return 0;                                                            /* success return 0 */
 }
@@ -892,7 +892,7 @@ uint8_t tea5767_get_port2(tea5767_handle_t *handle, tea5767_level_t *level)
         return 3;                                                        /* return error */
     }
     
-    *level = (tea5767_level_t)((handle->conf_up[3] >> 7) & 0x01);        /* get the setttings */
+    *level = (tea5767_level_t)((handle->conf_up[3] >> 7) & 0x01);        /* get the settings */
     
     return 0;                                                            /* success return 0 */
 }
@@ -945,7 +945,7 @@ uint8_t tea5767_get_standby(tea5767_handle_t *handle, tea5767_bool_t *enable)
         return 3;                                                        /* return error */
     }
     
-    *enable = (tea5767_bool_t)((handle->conf_up[3] >> 6) & 0x01);        /* get the setttings */
+    *enable = (tea5767_bool_t)((handle->conf_up[3] >> 6) & 0x01);        /* get the settings */
     
     return 0;                                                            /* success return 0 */
 }
@@ -998,7 +998,7 @@ uint8_t tea5767_get_band(tea5767_handle_t *handle, tea5767_band_t *band)
         return 3;                                                      /* return error */
     }
     
-    *band = (tea5767_band_t)((handle->conf_up[3] >> 5) & 0x01);        /* get the setttings */
+    *band = (tea5767_band_t)((handle->conf_up[3] >> 5) & 0x01);        /* get the settings */
     
     return 0;                                                          /* success return 0 */
 }
@@ -1051,7 +1051,7 @@ uint8_t tea5767_get_soft_mute(tea5767_handle_t *handle, tea5767_bool_t *enable)
         return 3;                                                        /* return error */
     }
     
-    *enable = (tea5767_bool_t)((handle->conf_up[3] >> 3) & 0x01);        /* get the setttings */
+    *enable = (tea5767_bool_t)((handle->conf_up[3] >> 3) & 0x01);        /* get the settings */
     
     return 0;                                                            /* success return 0 */
 }
@@ -1104,7 +1104,7 @@ uint8_t tea5767_get_high_cut_control(tea5767_handle_t *handle, tea5767_bool_t *e
         return 3;                                                        /* return error */
     }
     
-    *enable = (tea5767_bool_t)((handle->conf_up[3] >> 2) & 0x01);        /* get the setttings */
+    *enable = (tea5767_bool_t)((handle->conf_up[3] >> 2) & 0x01);        /* get the settings */
     
     return 0;                                                            /* success return 0 */
 }
@@ -1157,7 +1157,7 @@ uint8_t tea5767_get_stereo_noise_cancelling(tea5767_handle_t *handle, tea5767_bo
         return 3;                                                        /* return error */
     }
     
-    *enable = (tea5767_bool_t)((handle->conf_up[3] >> 1) & 0x01);        /* get the setttings */
+    *enable = (tea5767_bool_t)((handle->conf_up[3] >> 1) & 0x01);        /* get the settings */
     
     return 0;                                                            /* success return 0 */
 }
@@ -1210,7 +1210,7 @@ uint8_t tea5767_get_port1_as_search_indicator(tea5767_handle_t *handle, tea5767_
         return 3;                                                        /* return error */
     }
     
-    *enable = (tea5767_bool_t)((handle->conf_up[3] >> 0) & 0x01);        /* get the setttings */
+    *enable = (tea5767_bool_t)((handle->conf_up[3] >> 0) & 0x01);        /* get the settings */
     
     return 0;                                                            /* success return 0 */
 }
@@ -1263,7 +1263,7 @@ uint8_t tea5767_get_de_emphasis(tea5767_handle_t *handle, tea5767_de_emphasis_t 
         return 3;                                                                 /* return error */
     }
     
-    *emphasis = (tea5767_de_emphasis_t)((handle->conf_up[4] >> 6) & 0x01);        /* get the setttings */
+    *emphasis = (tea5767_de_emphasis_t)((handle->conf_up[4] >> 6) & 0x01);        /* get the settings */
     
     return 0;                                                                     /* success return 0 */
 }
@@ -1318,7 +1318,7 @@ uint8_t tea5767_get_clock(tea5767_handle_t *handle, tea5767_clock_t *clk)
         return 3;                                                                                                  /* return error */
     }
     
-    *clk = (tea5767_clock_t)(((handle->conf_up[4] >> 7) & 0x01) << 1 | ((handle->conf_up[3] >> 4) & 0x01));        /* get the setttings */
+    *clk = (tea5767_clock_t)(((handle->conf_up[4] >> 7) & 0x01) << 1 | ((handle->conf_up[3] >> 4) & 0x01));        /* get the settings */
     
     return 0;                                                                                                      /* success return 0 */
 }
@@ -1344,7 +1344,7 @@ uint8_t tea5767_get_ready_flag(tea5767_handle_t *handle, tea5767_bool_t *enable)
         return 3;                                                          /* return error */
     }
     
-    *enable = (tea5767_bool_t)((handle->conf_down[0] >> 7) & 0x01);        /* get the setttings */
+    *enable = (tea5767_bool_t)((handle->conf_down[0] >> 7) & 0x01);        /* get the settings */
     
     return 0;                                                              /* success return 0 */
 }
@@ -1370,7 +1370,7 @@ uint8_t tea5767_get_band_limit_flag(tea5767_handle_t *handle, tea5767_bool_t *en
         return 3;                                                          /* return error */
     }
     
-    *enable = (tea5767_bool_t)((handle->conf_down[0] >> 6) & 0x01);        /* get the setttings */
+    *enable = (tea5767_bool_t)((handle->conf_down[0] >> 6) & 0x01);        /* get the settings */
     
     return 0;                                                              /* success return 0 */
 }
@@ -1396,7 +1396,7 @@ uint8_t tea5767_get_searched_pll(tea5767_handle_t *handle, uint16_t *pll)
         return 3;                                                                        /* return error */
     }
     
-    *pll = ((uint16_t)(handle->conf_down[0] & 0x3F) << 8) | handle->conf_down[1];        /* get the setttings */
+    *pll = ((uint16_t)(handle->conf_down[0] & 0x3F) << 8) | handle->conf_down[1];        /* get the settings */
     
     return 0;                                                                            /* success return 0 */
 }
@@ -1422,7 +1422,7 @@ uint8_t tea5767_get_if(tea5767_handle_t *handle, uint8_t *if_out)
         return 3;                                 /* return error */
     }
     
-    *if_out = handle->conf_down[2] & 0x7F;        /* get the setttings */
+    *if_out = handle->conf_down[2] & 0x7F;        /* get the settings */
     
     return 0;                                     /* success return 0 */
 }
@@ -1448,7 +1448,7 @@ uint8_t tea5767_get_reception(tea5767_handle_t *handle, tea5767_reception_t *rec
         return 3;                                                                  /* return error */
     }
     
-    *reception = (tea5767_reception_t)((handle->conf_down[2] >> 7) & 0x01);        /* get the setttings */
+    *reception = (tea5767_reception_t)((handle->conf_down[2] >> 7) & 0x01);        /* get the settings */
     
     return 0;                                                                      /* success return 0 */
 }
@@ -1474,7 +1474,7 @@ uint8_t tea5767_get_level_adc_output(tea5767_handle_t *handle, uint8_t *output)
         return 3;                                       /* return error */
     }
     
-    *output = (handle->conf_down[3] >> 4) & 0xF;        /* get the setttings */
+    *output = (handle->conf_down[3] >> 4) & 0xF;        /* get the settings */
     
     return 0;                                           /* success return 0 */
 }
@@ -1677,7 +1677,7 @@ uint8_t tea5767_info(tea5767_info_t *info)
     info->max_current_ma = MAX_CURRENT;                             /* set maximum current */
     info->temperature_max = TEMPERATURE_MAX;                        /* set minimal temperature */
     info->temperature_min = TEMPERATURE_MIN;                        /* set maximum temperature */
-    info->driver_version = DRIVER_VERSION;                          /* set driver verison */
+    info->driver_version = DRIVER_VERSION;                          /* set driver version */
     
     return 0;                                                       /* success return 0 */
 }

@@ -81,7 +81,7 @@ uint8_t tea5767(uint8_t argc, char **argv)
         {"freq", required_argument, NULL, 2},
         {NULL, 0, NULL, 0},
     };
-    char type[33] = "unknow";
+    char type[33] = "unknown";
     tea5767_clock_t crystal = TEA5767_CLOCK_32P768_KHZ;
     float freq = 0.0f;
     uint8_t freq_flag = 0;
@@ -444,7 +444,7 @@ static uint8_t a_socket_init(void)
     gs_listen_fd = socket(AF_INET, SOCK_STREAM, 0);
     if (gs_listen_fd < 0) 
     {
-        tea5767_interface_debug_print("tea5767: cread socket failed.\n");
+        tea5767_interface_debug_print("tea5767: create socket failed.\n");
         
         return 1;
     }
@@ -459,7 +459,7 @@ static uint8_t a_socket_init(void)
     optval = 1;
     if (setsockopt(gs_listen_fd, SOL_SOCKET, SO_REUSEADDR, (char *)&optval, sizeof(optval)) < 0)
     {
-        tea5767_interface_debug_print("tea5767: cread socket failed.\n");
+        tea5767_interface_debug_print("tea5767: create socket failed.\n");
         (void)close(gs_listen_fd);
         
         return 1;
@@ -552,7 +552,7 @@ int main(void)
         return 1;
     }
     
-    /* shell init && register tea5767 fuction */
+    /* shell init && register tea5767 function */
     shell_init();
     shell_register("tea5767", tea5767);
     tea5767_interface_debug_print("tea5767: welcome to libdriver tea5767.\n");
@@ -578,7 +578,7 @@ int main(void)
             }
             else if (res == 2)
             {
-                tea5767_interface_debug_print("tea5767: unknow command.\n");
+                tea5767_interface_debug_print("tea5767: unknown command.\n");
             }
             else if (res == 3)
             {
@@ -594,7 +594,7 @@ int main(void)
             }
             else
             {
-                tea5767_interface_debug_print("tea5767: unknow status code.\n");
+                tea5767_interface_debug_print("tea5767: unknown status code.\n");
             }
         }
     }
