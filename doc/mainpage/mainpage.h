@@ -1,6 +1,6 @@
 /**
  * @mainpage  LibDriver TEA5767
- * @brief     libdriver tea5767 is a full function driver of tea5767 and it can run in both MCU and Linux platform.
+ * @brief     LibDriver TEA5767 is a full function driver of TEA5767 and it can run in both MCU and Linux platform.
  * @version   1.0.0
  * @author    Shifeng Li
  *
