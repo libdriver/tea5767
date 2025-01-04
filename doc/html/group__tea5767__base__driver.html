@@ -658,7 +658,7 @@ Functions</h2></td></tr>
 <p>close the chip </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a tea5767 handle structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a tea5767 handle structure </td></tr>
   </table>
   </dd>
 </dl>
@@ -711,9 +711,9 @@ Functions</h2></td></tr>
 <p>convert the register raw data to the frequency </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a tea5767 handle structure </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">pll</td><td>is the register raw data </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">*mhz</td><td>points to a frequency buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a tea5767 handle structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pll</td><td>register raw data </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*mhz</td><td>pointer to a frequency buffer </td></tr>
   </table>
   </dd>
 </dl>
@@ -765,9 +765,9 @@ Functions</h2></td></tr>
 <p>convert the frequency to the register raw data </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a tea5767 handle structure </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">mhz</td><td>is the radio frequency in MHz </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">*pll</td><td>points to a pll buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a tea5767 handle structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mhz</td><td>radio frequency in MHz </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*pll</td><td>pointer to a pll buffer </td></tr>
   </table>
   </dd>
 </dl>
@@ -813,8 +813,8 @@ Functions</h2></td></tr>
 <p>get the band </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a tea5767 handle structure </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">*band</td><td>points to a band buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a tea5767 handle structure </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*band</td><td>pointer to a band buffer </td></tr>
   </table>
   </dd>
 </dl>
@@ -859,8 +859,8 @@ Functions</h2></td></tr>
 <p>get the band limit flag </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a tea5767 handle structure </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">*enable</td><td>points to a bool value buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a tea5767 handle structure </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*enable</td><td>pointer to a bool value buffer </td></tr>
   </table>
   </dd>
 </dl>
@@ -905,8 +905,8 @@ Functions</h2></td></tr>
 <p>get the sound channel </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a tea5767 handle structure </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">*channel</td><td>points to a sound channel buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a tea5767 handle structure </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*channel</td><td>pointer to a sound channel buffer </td></tr>
   </table>
   </dd>
 </dl>
@@ -951,8 +951,8 @@ Functions</h2></td></tr>
 <p>get the clock </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a tea5767 handle structure </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">*clk</td><td>points to a clock buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a tea5767 handle structure </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*clk</td><td>pointer to a clock buffer </td></tr>
   </table>
   </dd>
 </dl>
@@ -997,8 +997,8 @@ Functions</h2></td></tr>
 <p>get the de emphasis status </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a tea5767 handle structure </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">*emphasis</td><td>points to an emphasis buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a tea5767 handle structure </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*emphasis</td><td>pointer to an emphasis buffer </td></tr>
   </table>
   </dd>
 </dl>
@@ -1043,8 +1043,8 @@ Functions</h2></td></tr>
 <p>get the high cut control status </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a tea5767 handle structure </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">*enable</td><td>points to a bool value buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a tea5767 handle structure </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*enable</td><td>pointer to a bool value buffer </td></tr>
   </table>
   </dd>
 </dl>
@@ -1089,8 +1089,8 @@ Functions</h2></td></tr>
 <p>get the if </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a tea5767 handle structure </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">*if_out</td><td>points to an if out buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a tea5767 handle structure </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*if_out</td><td>pointer to an if out buffer </td></tr>
   </table>
   </dd>
 </dl>
@@ -1135,8 +1135,8 @@ Functions</h2></td></tr>
 <p>get the left mute status </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a tea5767 handle structure </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">*enable</td><td>points to a bool value buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a tea5767 handle structure </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*enable</td><td>pointer to a bool value buffer </td></tr>
   </table>
   </dd>
 </dl>
@@ -1181,8 +1181,8 @@ Functions</h2></td></tr>
 <p>get the level adc output </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a tea5767 handle structure </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">*output</td><td>points to an output buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a tea5767 handle structure </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*output</td><td>pointer to an output buffer </td></tr>
   </table>
   </dd>
 </dl>
@@ -1227,8 +1227,8 @@ Functions</h2></td></tr>
 <p>get the chip mode </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a tea5767 handle structure </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">*mode</td><td>points to a mode buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a tea5767 handle structure </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*mode</td><td>pointer to a mode buffer </td></tr>
   </table>
   </dd>
 </dl>
@@ -1273,8 +1273,8 @@ Functions</h2></td></tr>
 <p>get the mute status </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a tea5767 handle structure </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">*enable</td><td>points to a bool value buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a tea5767 handle structure </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*enable</td><td>pointer to a bool value buffer </td></tr>
   </table>
   </dd>
 </dl>
@@ -1319,8 +1319,8 @@ Functions</h2></td></tr>
 <p>get the pll </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a tea5767 handle structure </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">*pll</td><td>points to a pll buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a tea5767 handle structure </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*pll</td><td>pointer to a pll buffer </td></tr>
   </table>
   </dd>
 </dl>
@@ -1365,8 +1365,8 @@ Functions</h2></td></tr>
 <p>get the port1 level </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a tea5767 handle structure </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">*level</td><td>points to a level buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a tea5767 handle structure </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*level</td><td>pointer to a level buffer </td></tr>
   </table>
   </dd>
 </dl>
@@ -1411,8 +1411,8 @@ Functions</h2></td></tr>
 <p>get the port1 as search indicator status </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a tea5767 handle structure </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">*enable</td><td>points to a bool value buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a tea5767 handle structure </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*enable</td><td>pointer to a bool value buffer </td></tr>
   </table>
   </dd>
 </dl>
@@ -1457,8 +1457,8 @@ Functions</h2></td></tr>
 <p>get the port2 level </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a tea5767 handle structure </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">*level</td><td>points to a level buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a tea5767 handle structure </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*level</td><td>pointer to a level buffer </td></tr>
   </table>
   </dd>
 </dl>
@@ -1503,8 +1503,8 @@ Functions</h2></td></tr>
 <p>get the ready flag </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a tea5767 handle structure </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">*enable</td><td>points to a bool value buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a tea5767 handle structure </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*enable</td><td>pointer to a bool value buffer </td></tr>
   </table>
   </dd>
 </dl>
@@ -1549,8 +1549,8 @@ Functions</h2></td></tr>
 <p>get the reception </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a tea5767 handle structure </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">*reception</td><td>points to a reception buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a tea5767 handle structure </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*reception</td><td>pointer to a reception buffer </td></tr>
   </table>
   </dd>
 </dl>
@@ -1595,8 +1595,8 @@ Functions</h2></td></tr>
 <p>get the right mute status </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a tea5767 handle structure </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">*enable</td><td>points to a bool value buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a tea5767 handle structure </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*enable</td><td>pointer to a bool value buffer </td></tr>
   </table>
   </dd>
 </dl>
@@ -1641,8 +1641,8 @@ Functions</h2></td></tr>
 <p>get the search mode </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a tea5767 handle structure </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">*mode</td><td>points to a mode buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a tea5767 handle structure </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*mode</td><td>pointer to a mode buffer </td></tr>
   </table>
   </dd>
 </dl>
@@ -1687,8 +1687,8 @@ Functions</h2></td></tr>
 <p>get the search stop level </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a tea5767 handle structure </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">*level</td><td>points to a search stop level buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a tea5767 handle structure </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*level</td><td>pointer to a search stop level buffer </td></tr>
   </table>
   </dd>
 </dl>
@@ -1733,8 +1733,8 @@ Functions</h2></td></tr>
 <p>get the searched pll </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a tea5767 handle structure </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">*pll</td><td>points to a pll buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a tea5767 handle structure </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*pll</td><td>pointer to a pll buffer </td></tr>
   </table>
   </dd>
 </dl>
@@ -1779,8 +1779,8 @@ Functions</h2></td></tr>
 <p>get the side injection </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a tea5767 handle structure </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">*side</td><td>points to an injection side buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a tea5767 handle structure </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*side</td><td>pointer to an injection side buffer </td></tr>
   </table>
   </dd>
 </dl>
@@ -1825,8 +1825,8 @@ Functions</h2></td></tr>
 <p>get the soft mute status </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a tea5767 handle structure </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">*enable</td><td>points to a bool value buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a tea5767 handle structure </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*enable</td><td>pointer to a bool value buffer </td></tr>
   </table>
   </dd>
 </dl>
@@ -1871,8 +1871,8 @@ Functions</h2></td></tr>
 <p>get the standby status </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a tea5767 handle structure </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">*enable</td><td>points to a bool value buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a tea5767 handle structure </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*enable</td><td>pointer to a bool value buffer </td></tr>
   </table>
   </dd>
 </dl>
@@ -1917,8 +1917,8 @@ Functions</h2></td></tr>
 <p>get the stereo noise cancelling status </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a tea5767 handle structure </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">*enable</td><td>points to a bool value buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a tea5767 handle structure </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*enable</td><td>pointer to a bool value buffer </td></tr>
   </table>
   </dd>
 </dl>
@@ -1953,7 +1953,7 @@ Functions</h2></td></tr>
 <p>get chip's information </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">*info</td><td>points to a tea5767 info structure </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*info</td><td>pointer to a tea5767 info structure </td></tr>
   </table>
   </dd>
 </dl>
@@ -1987,7 +1987,7 @@ Functions</h2></td></tr>
 <p>initialize the chip </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a tea5767 handle structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a tea5767 handle structure </td></tr>
   </table>
   </dd>
 </dl>
@@ -2023,7 +2023,7 @@ Functions</h2></td></tr>
 <p>read the conf </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a tea5767 handle structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a tea5767 handle structure </td></tr>
   </table>
   </dd>
 </dl>
@@ -2069,8 +2069,8 @@ Functions</h2></td></tr>
 <p>set the band </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a tea5767 handle structure </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">band</td><td>is the set band </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a tea5767 handle structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">band</td><td>set band </td></tr>
   </table>
   </dd>
 </dl>
@@ -2115,8 +2115,8 @@ Functions</h2></td></tr>
 <p>set the sound channel </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a tea5767 handle structure </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">channel</td><td>is the sound channel </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a tea5767 handle structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">channel</td><td>sound channel </td></tr>
   </table>
   </dd>
 </dl>
@@ -2161,8 +2161,8 @@ Functions</h2></td></tr>
 <p>set the clock </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a tea5767 handle structure </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">clk</td><td>is the set clock </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a tea5767 handle structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">clk</td><td>set clock </td></tr>
   </table>
   </dd>
 </dl>
@@ -2207,8 +2207,8 @@ Functions</h2></td></tr>
 <p>set the de emphasis </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a tea5767 handle structure </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">emphasis</td><td>is the set emphasis </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a tea5767 handle structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">emphasis</td><td>set emphasis </td></tr>
   </table>
   </dd>
 </dl>
@@ -2253,8 +2253,8 @@ Functions</h2></td></tr>
 <p>enable or disable high cut control </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a tea5767 handle structure </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">enable</td><td>is a bool value </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a tea5767 handle structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">enable</td><td>bool value </td></tr>
   </table>
   </dd>
 </dl>
@@ -2299,8 +2299,8 @@ Functions</h2></td></tr>
 <p>enable or disable left mute </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a tea5767 handle structure </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">enable</td><td>is a bool value </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a tea5767 handle structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">enable</td><td>bool value </td></tr>
   </table>
   </dd>
 </dl>
@@ -2345,8 +2345,8 @@ Functions</h2></td></tr>
 <p>set the chip mode </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a tea5767 handle structure </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">mode</td><td>is the set mode </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a tea5767 handle structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mode</td><td>set mode </td></tr>
   </table>
   </dd>
 </dl>
@@ -2391,8 +2391,8 @@ Functions</h2></td></tr>
 <p>enable or disable the mute </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a tea5767 handle structure </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">enable</td><td>is a bool value </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a tea5767 handle structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">enable</td><td>bool value </td></tr>
   </table>
   </dd>
 </dl>
@@ -2437,8 +2437,8 @@ Functions</h2></td></tr>
 <p>set the pll </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a tea5767 handle structure </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">pll</td><td>is the set pll </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a tea5767 handle structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pll</td><td>set pll </td></tr>
   </table>
   </dd>
 </dl>
@@ -2484,8 +2484,8 @@ Functions</h2></td></tr>
 <p>set the port1 level </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a tea5767 handle structure </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">level</td><td>is the set level </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a tea5767 handle structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">level</td><td>set level </td></tr>
   </table>
   </dd>
 </dl>
@@ -2530,8 +2530,8 @@ Functions</h2></td></tr>
 <p>enable or disable port1 as search indicator </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a tea5767 handle structure </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">enable</td><td>is a bool value </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a tea5767 handle structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">enable</td><td>bool value </td></tr>
   </table>
   </dd>
 </dl>
@@ -2576,8 +2576,8 @@ Functions</h2></td></tr>
 <p>set the port2 level </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a tea5767 handle structure </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">level</td><td>is the set level </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a tea5767 handle structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">level</td><td>set level </td></tr>
   </table>
   </dd>
 </dl>
@@ -2622,8 +2622,8 @@ Functions</h2></td></tr>
 <p>enable or disable right mute </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a tea5767 handle structure </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">enable</td><td>is a bool value </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a tea5767 handle structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">enable</td><td>bool value </td></tr>
   </table>
   </dd>
 </dl>
@@ -2668,8 +2668,8 @@ Functions</h2></td></tr>
 <p>set the search mode </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a tea5767 handle structure </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">mode</td><td>is the search mode </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a tea5767 handle structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mode</td><td>search mode </td></tr>
   </table>
   </dd>
 </dl>
@@ -2714,8 +2714,8 @@ Functions</h2></td></tr>
 <p>set the search stop level </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a tea5767 handle structure </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">level</td><td>is the search stop level </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a tea5767 handle structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">level</td><td>search stop level </td></tr>
   </table>
   </dd>
 </dl>
@@ -2760,8 +2760,8 @@ Functions</h2></td></tr>
 <p>set the side injection </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a tea5767 handle structure </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">side</td><td>is the injection side </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a tea5767 handle structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">side</td><td>injection side </td></tr>
   </table>
   </dd>
 </dl>
@@ -2806,8 +2806,8 @@ Functions</h2></td></tr>
 <p>enable or disable soft mute </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a tea5767 handle structure </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">enable</td><td>is a bool value </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a tea5767 handle structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">enable</td><td>bool value </td></tr>
   </table>
   </dd>
 </dl>
@@ -2852,8 +2852,8 @@ Functions</h2></td></tr>
 <p>enable or disable standby </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a tea5767 handle structure </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">enable</td><td>is a bool value </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a tea5767 handle structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">enable</td><td>bool value </td></tr>
   </table>
   </dd>
 </dl>
@@ -2898,8 +2898,8 @@ Functions</h2></td></tr>
 <p>enable or disable stereo noise cancelling </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a tea5767 handle structure </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">enable</td><td>is a bool value </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a tea5767 handle structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">enable</td><td>bool value </td></tr>
   </table>
   </dd>
 </dl>
@@ -2944,8 +2944,8 @@ Functions</h2></td></tr>
 <p>update the conf </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a tea5767 handle structure </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">*conf</td><td>points to a conf buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a tea5767 handle structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*conf</td><td>pointer to a conf buffer </td></tr>
   </table>
   </dd>
 </dl>
@@ -2980,7 +2980,7 @@ Functions</h2></td></tr>
 <p>write the conf </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a tea5767 handle structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a tea5767 handle structure </td></tr>
   </table>
   </dd>
 </dl>

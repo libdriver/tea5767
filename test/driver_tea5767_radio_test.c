@@ -41,7 +41,7 @@ static tea5767_handle_t gs_handle;        /**< tea5767 handle */
 
 /**
  * @brief     radio test
- * @param[in] clk is the chip crystal frequency
+ * @param[in] clk chip crystal frequency
  * @return    status code
  *            - 0 success
  *            - 1 test failed

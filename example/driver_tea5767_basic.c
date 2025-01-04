@@ -491,7 +491,7 @@ uint8_t tea5767_basic_search_down(void)
 
 /**
  * @brief     basic example set frequency
- * @param[in] mhz is the set frequency
+ * @param[in] mhz set frequency
  * @return    status code
  *            - 0 success
  *            - 1 set frequency failed
@@ -528,7 +528,7 @@ uint8_t tea5767_basic_set_frequency(float mhz)
 
 /**
  * @brief      basic example get frequency
- * @param[out] *mhz points to a frequency buffer
+ * @param[out] *mhz pointer to a frequency buffer
  * @return     status code
  *             - 0 success
  *             - 1 get frequency failed
@@ -565,7 +565,7 @@ uint8_t tea5767_basic_get_frequency(float *mhz)
 
 /**
  * @brief     basic example enable or disable mute
- * @param[in] enable is a bool value
+ * @param[in] enable bool value
  * @return    status code
  *            - 0 success
  *            - 1 set mute failed

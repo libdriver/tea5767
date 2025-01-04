@@ -55,9 +55,9 @@
 
 /**
  * @brief      read bytes
- * @param[in]  *handle points to a tea5767 handle structure
- * @param[out] *data points to a data buffer
- * @param[in]  len is the data length
+ * @param[in]  *handle pointer to a tea5767 handle structure
+ * @param[out] *data pointer to a data buffer
+ * @param[in]  len data length
  * @return     status code
  *             - 0 success
  *             - 1 read failed
@@ -77,9 +77,9 @@ static uint8_t a_tea5767_iic_read(tea5767_handle_t *handle, uint8_t *data, uint1
 
 /**
  * @brief     write bytes
- * @param[in] *handle points to a tea5767 handle structure
- * @param[in] *data points to a data buffer
- * @param[in] len is the data length
+ * @param[in] *handle pointer to a tea5767 handle structure
+ * @param[in] *data pointer to a data buffer
+ * @param[in] len data length
  * @return    status code
  *            - 0 success
  *            - 1 write failed
@@ -99,7 +99,7 @@ static uint8_t a_tea5767_iic_write(tea5767_handle_t *handle, uint8_t *data, uint
 
 /**
  * @brief     initialize the chip
- * @param[in] *handle points to a tea5767 handle structure
+ * @param[in] *handle pointer to a tea5767 handle structure
  * @return    status code
  *            - 0 success
  *            - 1 iic initialization failed
@@ -161,7 +161,7 @@ uint8_t tea5767_init(tea5767_handle_t *handle)
 
 /**
  * @brief     close the chip
- * @param[in] *handle points to a tea5767 handle structure
+ * @param[in] *handle pointer to a tea5767 handle structure
  * @return    status code
  *            - 0 success
  *            - 1 iic deinit failed
@@ -205,7 +205,7 @@ uint8_t tea5767_deinit(tea5767_handle_t *handle)
 
 /**
  * @brief     write the conf
- * @param[in] *handle points to a tea5767 handle structure
+ * @param[in] *handle pointer to a tea5767 handle structure
  * @return    status code
  *            - 0 success
  *            - 1 write conf failed
@@ -239,7 +239,7 @@ uint8_t tea5767_write_conf(tea5767_handle_t *handle)
 
 /**
  * @brief     read the conf
- * @param[in] *handle points to a tea5767 handle structure
+ * @param[in] *handle pointer to a tea5767 handle structure
  * @return    status code
  *            - 0 success
  *            - 1 read conf failed
@@ -273,8 +273,8 @@ uint8_t tea5767_read_conf(tea5767_handle_t *handle)
 
 /**
  * @brief     update the conf
- * @param[in] *handle points to a tea5767 handle structure
- * @param[in] *conf points to a conf buffer
+ * @param[in] *handle pointer to a tea5767 handle structure
+ * @param[in] *conf pointer to a conf buffer
  * @return    status code
  *            - 0 success
  *            - 2 handle is NULL
@@ -299,8 +299,8 @@ uint8_t tea5767_update_conf(tea5767_handle_t *handle, uint8_t conf[5])
 
 /**
  * @brief     enable or disable the mute
- * @param[in] *handle points to a tea5767 handle structure
- * @param[in] enable is a bool value
+ * @param[in] *handle pointer to a tea5767 handle structure
+ * @param[in] enable bool value
  * @return    status code
  *            - 0 success
  *            - 2 handle is NULL
@@ -326,8 +326,8 @@ uint8_t tea5767_set_mute(tea5767_handle_t *handle, tea5767_bool_t enable)
 
 /**
  * @brief      get the mute status
- * @param[in]  *handle points to a tea5767 handle structure
- * @param[out] *enable points to a bool value buffer
+ * @param[in]  *handle pointer to a tea5767 handle structure
+ * @param[out] *enable pointer to a bool value buffer
  * @return     status code
  *             - 0 success
  *             - 2 handle is NULL
@@ -352,8 +352,8 @@ uint8_t tea5767_get_mute(tea5767_handle_t *handle, tea5767_bool_t *enable)
 
 /**
  * @brief     set the chip mode
- * @param[in] *handle points to a tea5767 handle structure
- * @param[in] mode is the set mode
+ * @param[in] *handle pointer to a tea5767 handle structure
+ * @param[in] mode set mode
  * @return    status code
  *            - 0 success
  *            - 2 handle is NULL
@@ -379,8 +379,8 @@ uint8_t tea5767_set_mode(tea5767_handle_t *handle, tea5767_mode_t mode)
 
 /**
  * @brief      get the chip mode
- * @param[in]  *handle points to a tea5767 handle structure
- * @param[out] *mode points to a mode buffer
+ * @param[in]  *handle pointer to a tea5767 handle structure
+ * @param[out] *mode pointer to a mode buffer
  * @return     status code
  *             - 0 success
  *             - 2 handle is NULL
@@ -405,8 +405,8 @@ uint8_t tea5767_get_mode(tea5767_handle_t *handle, tea5767_mode_t *mode)
 
 /**
  * @brief     set the pll
- * @param[in] *handle points to a tea5767 handle structure
- * @param[in] pll is the set pll
+ * @param[in] *handle pointer to a tea5767 handle structure
+ * @param[in] pll set pll
  * @return    status code
  *            - 0 success
  *            - 2 handle is NULL
@@ -445,8 +445,8 @@ uint8_t tea5767_set_pll(tea5767_handle_t *handle, uint16_t pll)
 
 /**
  * @brief      get the pll
- * @param[in]  *handle points to a tea5767 handle structure
- * @param[out] *pll points to a pll buffer
+ * @param[in]  *handle pointer to a tea5767 handle structure
+ * @param[out] *pll pointer to a pll buffer
  * @return     status code
  *             - 0 success
  *             - 2 handle is NULL
@@ -475,8 +475,8 @@ uint8_t tea5767_get_pll(tea5767_handle_t *handle, uint16_t *pll)
 
 /**
  * @brief     set the search mode
- * @param[in] *handle points to a tea5767 handle structure
- * @param[in] mode is the search mode
+ * @param[in] *handle pointer to a tea5767 handle structure
+ * @param[in] mode search mode
  * @return    status code
  *            - 0 success
  *            - 2 handle is NULL
@@ -502,8 +502,8 @@ uint8_t tea5767_set_search_mode(tea5767_handle_t *handle, tea5767_search_mode_t 
 
 /**
  * @brief      get the search mode
- * @param[in]  *handle points to a tea5767 handle structure
- * @param[out] *mode points to a mode buffer
+ * @param[in]  *handle pointer to a tea5767 handle structure
+ * @param[out] *mode pointer to a mode buffer
  * @return     status code
  *             - 0 success
  *             - 2 handle is NULL
@@ -528,8 +528,8 @@ uint8_t tea5767_get_search_mode(tea5767_handle_t *handle, tea5767_search_mode_t 
 
 /**
  * @brief     set the search stop level
- * @param[in] *handle points to a tea5767 handle structure
- * @param[in] level is the search stop level
+ * @param[in] *handle pointer to a tea5767 handle structure
+ * @param[in] level search stop level
  * @return    status code
  *            - 0 success
  *            - 2 handle is NULL
@@ -555,8 +555,8 @@ uint8_t tea5767_set_search_stop_level(tea5767_handle_t *handle, tea5767_search_s
 
 /**
  * @brief      get the search stop level
- * @param[in]  *handle points to a tea5767 handle structure
- * @param[out] *level points to a search stop level buffer
+ * @param[in]  *handle pointer to a tea5767 handle structure
+ * @param[out] *level pointer to a search stop level buffer
  * @return     status code
  *             - 0 success
  *             - 2 handle is NULL
@@ -581,8 +581,8 @@ uint8_t tea5767_get_search_stop_level(tea5767_handle_t *handle, tea5767_search_s
 
 /**
  * @brief     set the side injection
- * @param[in] *handle points to a tea5767 handle structure
- * @param[in] side is the injection side
+ * @param[in] *handle pointer to a tea5767 handle structure
+ * @param[in] side injection side
  * @return    status code
  *            - 0 success
  *            - 2 handle is NULL
@@ -608,8 +608,8 @@ uint8_t tea5767_set_side_injection(tea5767_handle_t *handle, tea5767_side_inject
 
 /**
  * @brief      get the side injection
- * @param[in]  *handle points to a tea5767 handle structure
- * @param[out] *side points to an injection side buffer
+ * @param[in]  *handle pointer to a tea5767 handle structure
+ * @param[out] *side pointer to an injection side buffer
  * @return     status code
  *             - 0 success
  *             - 2 handle is NULL
@@ -634,8 +634,8 @@ uint8_t tea5767_get_side_injection(tea5767_handle_t *handle, tea5767_side_inject
 
 /**
  * @brief     set the sound channel
- * @param[in] *handle points to a tea5767 handle structure
- * @param[in] channel is the sound channel
+ * @param[in] *handle pointer to a tea5767 handle structure
+ * @param[in] channel sound channel
  * @return    status code
  *            - 0 success
  *            - 2 handle is NULL
@@ -661,8 +661,8 @@ uint8_t tea5767_set_channel(tea5767_handle_t *handle, tea5767_channel_t channel)
 
 /**
  * @brief      get the sound channel
- * @param[in]  *handle points to a tea5767 handle structure
- * @param[out] *channel points to a sound channel buffer
+ * @param[in]  *handle pointer to a tea5767 handle structure
+ * @param[out] *channel pointer to a sound channel buffer
  * @return     status code
  *             - 0 success
  *             - 2 handle is NULL
@@ -687,8 +687,8 @@ uint8_t tea5767_get_channel(tea5767_handle_t *handle, tea5767_channel_t *channel
 
 /**
  * @brief     enable or disable right mute
- * @param[in] *handle points to a tea5767 handle structure
- * @param[in] enable is a bool value
+ * @param[in] *handle pointer to a tea5767 handle structure
+ * @param[in] enable bool value
  * @return    status code
  *            - 0 success
  *            - 2 handle is NULL
@@ -714,8 +714,8 @@ uint8_t tea5767_set_right_mute(tea5767_handle_t *handle, tea5767_bool_t enable)
 
 /**
  * @brief      get the right mute status
- * @param[in]  *handle points to a tea5767 handle structure
- * @param[out] *enable points to a bool value buffer
+ * @param[in]  *handle pointer to a tea5767 handle structure
+ * @param[out] *enable pointer to a bool value buffer
  * @return     status code
  *             - 0 success
  *             - 2 handle is NULL
@@ -740,8 +740,8 @@ uint8_t tea5767_get_right_mute(tea5767_handle_t *handle, tea5767_bool_t *enable)
 
 /**
  * @brief     enable or disable left mute
- * @param[in] *handle points to a tea5767 handle structure
- * @param[in] enable is a bool value
+ * @param[in] *handle pointer to a tea5767 handle structure
+ * @param[in] enable bool value
  * @return    status code
  *            - 0 success
  *            - 2 handle is NULL
@@ -767,8 +767,8 @@ uint8_t tea5767_set_left_mute(tea5767_handle_t *handle, tea5767_bool_t enable)
 
 /**
  * @brief      get the left mute status
- * @param[in]  *handle points to a tea5767 handle structure
- * @param[out] *enable points to a bool value buffer
+ * @param[in]  *handle pointer to a tea5767 handle structure
+ * @param[out] *enable pointer to a bool value buffer
  * @return     status code
  *             - 0 success
  *             - 2 handle is NULL
@@ -793,8 +793,8 @@ uint8_t tea5767_get_left_mute(tea5767_handle_t *handle, tea5767_bool_t *enable)
 
 /**
  * @brief     set the port1 level
- * @param[in] *handle points to a tea5767 handle structure
- * @param[in] level is the set level
+ * @param[in] *handle pointer to a tea5767 handle structure
+ * @param[in] level set level
  * @return    status code
  *            - 0 success
  *            - 2 handle is NULL
@@ -820,8 +820,8 @@ uint8_t tea5767_set_port1(tea5767_handle_t *handle, tea5767_level_t level)
 
 /**
  * @brief      get the port1 level
- * @param[in]  *handle points to a tea5767 handle structure
- * @param[out] *level points to a level buffer
+ * @param[in]  *handle pointer to a tea5767 handle structure
+ * @param[out] *level pointer to a level buffer
  * @return     status code
  *             - 0 success
  *             - 2 handle is NULL
@@ -846,8 +846,8 @@ uint8_t tea5767_get_port1(tea5767_handle_t *handle, tea5767_level_t *level)
 
 /**
  * @brief     set the port2 level
- * @param[in] *handle points to a tea5767 handle structure
- * @param[in] level is the set level
+ * @param[in] *handle pointer to a tea5767 handle structure
+ * @param[in] level set level
  * @return    status code
  *            - 0 success
  *            - 2 handle is NULL
@@ -873,8 +873,8 @@ uint8_t tea5767_set_port2(tea5767_handle_t *handle, tea5767_level_t level)
 
 /**
  * @brief      get the port2 level
- * @param[in]  *handle points to a tea5767 handle structure
- * @param[out] *level points to a level buffer
+ * @param[in]  *handle pointer to a tea5767 handle structure
+ * @param[out] *level pointer to a level buffer
  * @return     status code
  *             - 0 success
  *             - 2 handle is NULL
@@ -899,8 +899,8 @@ uint8_t tea5767_get_port2(tea5767_handle_t *handle, tea5767_level_t *level)
 
 /**
  * @brief     enable or disable standby
- * @param[in] *handle points to a tea5767 handle structure
- * @param[in] enable is a bool value
+ * @param[in] *handle pointer to a tea5767 handle structure
+ * @param[in] enable bool value
  * @return    status code
  *            - 0 success
  *            - 2 handle is NULL
@@ -926,8 +926,8 @@ uint8_t tea5767_set_standby(tea5767_handle_t *handle, tea5767_bool_t enable)
 
 /**
  * @brief      get the standby status
- * @param[in]  *handle points to a tea5767 handle structure
- * @param[out] *enable points to a bool value buffer
+ * @param[in]  *handle pointer to a tea5767 handle structure
+ * @param[out] *enable pointer to a bool value buffer
  * @return     status code
  *             - 0 success
  *             - 2 handle is NULL
@@ -952,8 +952,8 @@ uint8_t tea5767_get_standby(tea5767_handle_t *handle, tea5767_bool_t *enable)
 
 /**
  * @brief     set the band
- * @param[in] *handle points to a tea5767 handle structure
- * @param[in] band is the set band
+ * @param[in] *handle pointer to a tea5767 handle structure
+ * @param[in] band set band
  * @return    status code
  *            - 0 success
  *            - 2 handle is NULL
@@ -979,8 +979,8 @@ uint8_t tea5767_set_band(tea5767_handle_t *handle, tea5767_band_t band)
 
 /**
  * @brief      get the band
- * @param[in]  *handle points to a tea5767 handle structure
- * @param[out] *band points to a band buffer
+ * @param[in]  *handle pointer to a tea5767 handle structure
+ * @param[out] *band pointer to a band buffer
  * @return     status code
  *             - 0 success
  *             - 2 handle is NULL
@@ -1005,8 +1005,8 @@ uint8_t tea5767_get_band(tea5767_handle_t *handle, tea5767_band_t *band)
 
 /**
  * @brief     enable or disable soft mute
- * @param[in] *handle points to a tea5767 handle structure
- * @param[in] enable is a bool value
+ * @param[in] *handle pointer to a tea5767 handle structure
+ * @param[in] enable bool value
  * @return    status code
  *            - 0 success
  *            - 2 handle is NULL
@@ -1032,8 +1032,8 @@ uint8_t tea5767_set_soft_mute(tea5767_handle_t *handle, tea5767_bool_t enable)
 
 /**
  * @brief      get the soft mute status
- * @param[in]  *handle points to a tea5767 handle structure
- * @param[out] *enable points to a bool value buffer
+ * @param[in]  *handle pointer to a tea5767 handle structure
+ * @param[out] *enable pointer to a bool value buffer
  * @return     status code
  *             - 0 success
  *             - 2 handle is NULL
@@ -1058,8 +1058,8 @@ uint8_t tea5767_get_soft_mute(tea5767_handle_t *handle, tea5767_bool_t *enable)
 
 /**
  * @brief     enable or disable high cut control
- * @param[in] *handle points to a tea5767 handle structure
- * @param[in] enable is a bool value
+ * @param[in] *handle pointer to a tea5767 handle structure
+ * @param[in] enable bool value
  * @return    status code
  *            - 0 success
  *            - 2 handle is NULL
@@ -1085,8 +1085,8 @@ uint8_t tea5767_set_high_cut_control(tea5767_handle_t *handle, tea5767_bool_t en
 
 /**
  * @brief      get the high cut control status
- * @param[in]  *handle points to a tea5767 handle structure
- * @param[out] *enable points to a bool value buffer
+ * @param[in]  *handle pointer to a tea5767 handle structure
+ * @param[out] *enable pointer to a bool value buffer
  * @return     status code
  *             - 0 success
  *             - 2 handle is NULL
@@ -1111,8 +1111,8 @@ uint8_t tea5767_get_high_cut_control(tea5767_handle_t *handle, tea5767_bool_t *e
 
 /**
  * @brief     enable or disable stereo noise cancelling
- * @param[in] *handle points to a tea5767 handle structure
- * @param[in] enable is a bool value
+ * @param[in] *handle pointer to a tea5767 handle structure
+ * @param[in] enable bool value
  * @return    status code
  *            - 0 success
  *            - 2 handle is NULL
@@ -1138,8 +1138,8 @@ uint8_t tea5767_set_stereo_noise_cancelling(tea5767_handle_t *handle, tea5767_bo
 
 /**
  * @brief      get the stereo noise cancelling status
- * @param[in]  *handle points to a tea5767 handle structure
- * @param[out] *enable points to a bool value buffer
+ * @param[in]  *handle pointer to a tea5767 handle structure
+ * @param[out] *enable pointer to a bool value buffer
  * @return     status code
  *             - 0 success
  *             - 2 handle is NULL
@@ -1164,8 +1164,8 @@ uint8_t tea5767_get_stereo_noise_cancelling(tea5767_handle_t *handle, tea5767_bo
 
 /**
  * @brief     enable or disable port1 as search indicator
- * @param[in] *handle points to a tea5767 handle structure
- * @param[in] enable is a bool value
+ * @param[in] *handle pointer to a tea5767 handle structure
+ * @param[in] enable bool value
  * @return    status code
  *            - 0 success
  *            - 2 handle is NULL
@@ -1191,8 +1191,8 @@ uint8_t tea5767_set_port1_as_search_indicator(tea5767_handle_t *handle, tea5767_
 
 /**
  * @brief      get the port1 as search indicator status
- * @param[in]  *handle points to a tea5767 handle structure
- * @param[out] *enable points to a bool value buffer
+ * @param[in]  *handle pointer to a tea5767 handle structure
+ * @param[out] *enable pointer to a bool value buffer
  * @return     status code
  *             - 0 success
  *             - 2 handle is NULL
@@ -1217,8 +1217,8 @@ uint8_t tea5767_get_port1_as_search_indicator(tea5767_handle_t *handle, tea5767_
 
 /**
  * @brief     set the de emphasis
- * @param[in] *handle points to a tea5767 handle structure
- * @param[in] emphasis is the set emphasis
+ * @param[in] *handle pointer to a tea5767 handle structure
+ * @param[in] emphasis set emphasis
  * @return    status code
  *            - 0 success
  *            - 2 handle is NULL
@@ -1244,8 +1244,8 @@ uint8_t tea5767_set_de_emphasis(tea5767_handle_t *handle, tea5767_de_emphasis_t 
 
 /**
  * @brief      get the de emphasis status
- * @param[in]  *handle points to a tea5767 handle structure
- * @param[out] *emphasis points to an emphasis buffer
+ * @param[in]  *handle pointer to a tea5767 handle structure
+ * @param[out] *emphasis pointer to an emphasis buffer
  * @return     status code
  *             - 0 success
  *             - 2 handle is NULL
@@ -1270,8 +1270,8 @@ uint8_t tea5767_get_de_emphasis(tea5767_handle_t *handle, tea5767_de_emphasis_t 
 
 /**
  * @brief     set the clock
- * @param[in] *handle points to a tea5767 handle structure
- * @param[in] clk is the set clock
+ * @param[in] *handle pointer to a tea5767 handle structure
+ * @param[in] clk set clock
  * @return    status code
  *            - 0 success
  *            - 2 handle is NULL
@@ -1299,8 +1299,8 @@ uint8_t tea5767_set_clock(tea5767_handle_t *handle, tea5767_clock_t clk)
 
 /**
  * @brief      get the clock
- * @param[in]  *handle points to a tea5767 handle structure
- * @param[out] *clk points to a clock buffer
+ * @param[in]  *handle pointer to a tea5767 handle structure
+ * @param[out] *clk pointer to a clock buffer
  * @return     status code
  *             - 0 success
  *             - 2 handle is NULL
@@ -1325,8 +1325,8 @@ uint8_t tea5767_get_clock(tea5767_handle_t *handle, tea5767_clock_t *clk)
 
 /**
  * @brief      get the ready flag
- * @param[in]  *handle points to a tea5767 handle structure
- * @param[out] *enable points to a bool value buffer
+ * @param[in]  *handle pointer to a tea5767 handle structure
+ * @param[out] *enable pointer to a bool value buffer
  * @return     status code
  *             - 0 success
  *             - 2 handle is NULL
@@ -1351,8 +1351,8 @@ uint8_t tea5767_get_ready_flag(tea5767_handle_t *handle, tea5767_bool_t *enable)
 
 /**
  * @brief      get the band limit flag
- * @param[in]  *handle points to a tea5767 handle structure
- * @param[out] *enable points to a bool value buffer
+ * @param[in]  *handle pointer to a tea5767 handle structure
+ * @param[out] *enable pointer to a bool value buffer
  * @return     status code
  *             - 0 success
  *             - 2 handle is NULL
@@ -1377,8 +1377,8 @@ uint8_t tea5767_get_band_limit_flag(tea5767_handle_t *handle, tea5767_bool_t *en
 
 /**
  * @brief      get the searched pll
- * @param[in]  *handle points to a tea5767 handle structure
- * @param[out] *pll points to a pll buffer
+ * @param[in]  *handle pointer to a tea5767 handle structure
+ * @param[out] *pll pointer to a pll buffer
  * @return     status code
  *             - 0 success
  *             - 2 handle is NULL
@@ -1403,8 +1403,8 @@ uint8_t tea5767_get_searched_pll(tea5767_handle_t *handle, uint16_t *pll)
 
 /**
  * @brief      get the if
- * @param[in]  *handle points to a tea5767 handle structure
- * @param[out] *if_out points to an if out buffer
+ * @param[in]  *handle pointer to a tea5767 handle structure
+ * @param[out] *if_out pointer to an if out buffer
  * @return     status code
  *             - 0 success
  *             - 2 handle is NULL
@@ -1429,8 +1429,8 @@ uint8_t tea5767_get_if(tea5767_handle_t *handle, uint8_t *if_out)
 
 /**
  * @brief      get the reception
- * @param[in]  *handle points to a tea5767 handle structure
- * @param[out] *reception points to a reception buffer
+ * @param[in]  *handle pointer to a tea5767 handle structure
+ * @param[out] *reception pointer to a reception buffer
  * @return     status code
  *             - 0 success
  *             - 2 handle is NULL
@@ -1455,8 +1455,8 @@ uint8_t tea5767_get_reception(tea5767_handle_t *handle, tea5767_reception_t *rec
 
 /**
  * @brief      get the level adc output
- * @param[in]  *handle points to a tea5767 handle structure
- * @param[out] *output points to an output buffer
+ * @param[in]  *handle pointer to a tea5767 handle structure
+ * @param[out] *output pointer to an output buffer
  * @return     status code
  *             - 0 success
  *             - 2 handle is NULL
@@ -1481,9 +1481,9 @@ uint8_t tea5767_get_level_adc_output(tea5767_handle_t *handle, uint8_t *output)
 
 /**
  * @brief      convert the frequency to the register raw data
- * @param[in]  *handle points to a tea5767 handle structure
- * @param[in]  mhz is the radio frequency in MHz
- * @param[out] *pll points to a pll buffer
+ * @param[in]  *handle pointer to a tea5767 handle structure
+ * @param[in]  mhz radio frequency in MHz
+ * @param[out] *pll pointer to a pll buffer
  * @return     status code
  *             - 0 success
  *             - 2 handle is NULL
@@ -1542,9 +1542,9 @@ uint8_t tea5767_frequency_convert_to_register(tea5767_handle_t *handle, float mh
 
 /**
  * @brief      convert the register raw data to the frequency
- * @param[in]  *handle points to a tea5767 handle structure
- * @param[in]  pll is the register raw data
- * @param[out] *mhz points to a frequency buffer
+ * @param[in]  *handle pointer to a tea5767 handle structure
+ * @param[in]  pll register raw data
+ * @param[out] *mhz pointer to a frequency buffer
  * @return     status code
  *             - 0 success
  *             - 2 handle is NULL
@@ -1603,9 +1603,9 @@ uint8_t tea5767_frequency_convert_to_data(tea5767_handle_t *handle, uint16_t pll
 
 /**
  * @brief     set the chip register
- * @param[in] *handle points to a tea5767 handle structure
- * @param[in] *buf points to a data buffer.
- * @param[in] len is the data buffer
+ * @param[in] *handle pointer to a tea5767 handle structure
+ * @param[in] *buf pointer to a data buffer.
+ * @param[in] len data buffer length
  * @return    status code
  *            - 0 success
  *            - 1 write failed
@@ -1629,9 +1629,9 @@ uint8_t tea5767_set_reg(tea5767_handle_t *handle, uint8_t *buf, uint16_t len)
 
 /**
  * @brief      get the chip register
- * @param[in]  *handle points to a tea5767 handle structure
- * @param[out] *buf points to a data buffer.
- * @param[in]  len is the data buffer
+ * @param[in]  *handle pointer to a tea5767 handle structure
+ * @param[out] *buf pointer to a data buffer.
+ * @param[in]  len data buffer length
  * @return     status code
  *             - 0 success
  *             - 1 read failed
@@ -1655,7 +1655,7 @@ uint8_t tea5767_get_reg(tea5767_handle_t *handle, uint8_t *buf, uint16_t len)
 
 /**
  * @brief      get chip's information
- * @param[out] *info points to a tea5767 info structure
+ * @param[out] *info pointer to a tea5767 info structure
  * @return     status code
  *             - 0 success
  *             - 2 handle is NULL
