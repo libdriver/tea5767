@@ -10,7 +10,7 @@
 
 The TEA5767 is a single-chip electronically tuned FM stereo radio for low-voltage applications with fully integrated Intermediate Frequency (IF) selectivity and demodulation. The radio is completely adjustment-free and only requires a minimum of small and low cost external components. The radio can be tuned to the European, US, and Japanese FM bands.
 
-LibDriver TEA5767 is a full-featured driver of TEA5767 launched by LibDriver.It provides FM searching, FM playing and other functions. LibDriver is MISRA compliant.
+LibDriver TEA5767 is a full-featured driver for TEA5767, launched by LibDriver. It provides FM searching, FM playing and additional features. LibDriver is MISRA compliant.
 
 ### Table of Contents
 
