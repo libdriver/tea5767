@@ -1211,11 +1211,11 @@ $(function(){initNavTree('driver__tea5767_8c_source.html','',''); });
 <div class="line"><a id="l01591" name="l01591"></a><span class="lineno"> 1591</span>    </div>
 <div class="line"><a id="l01592" name="l01592"></a><span class="lineno"> 1592</span>    <span class="keywordflow">if</span> (hlsi != 0)                                                       <span class="comment">/* high side lo injection */</span></div>
 <div class="line"><a id="l01593" name="l01593"></a><span class="lineno"> 1593</span>    {</div>
-<div class="line"><a id="l01594" name="l01594"></a><span class="lineno"> 1594</span>        *mhz = (pll * f / 4.0f - 255.0f) / 1000.0f;                      <span class="comment">/* convert raw data to real data */</span></div>
+<div class="line"><a id="l01594" name="l01594"></a><span class="lineno"> 1594</span>        *mhz = (pll * f / 4.0f - 225.0f) / 1000.0f;                      <span class="comment">/* convert raw data to real data */</span></div>
 <div class="line"><a id="l01595" name="l01595"></a><span class="lineno"> 1595</span>    }                                                                    <span class="comment">/* low side lo injection */</span></div>
 <div class="line"><a id="l01596" name="l01596"></a><span class="lineno"> 1596</span>    <span class="keywordflow">else</span></div>
 <div class="line"><a id="l01597" name="l01597"></a><span class="lineno"> 1597</span>    {</div>
-<div class="line"><a id="l01598" name="l01598"></a><span class="lineno"> 1598</span>        *mhz = (pll * f / 4.0f + 255.0f) / 1000.0f;                      <span class="comment">/* convert raw data to real data */</span></div>
+<div class="line"><a id="l01598" name="l01598"></a><span class="lineno"> 1598</span>        *mhz = (pll * f / 4.0f + 225.0f) / 1000.0f;                      <span class="comment">/* convert raw data to real data */</span></div>
 <div class="line"><a id="l01599" name="l01599"></a><span class="lineno"> 1599</span>    }</div>
 <div class="line"><a id="l01600" name="l01600"></a><span class="lineno"> 1600</span>    </div>
 <div class="line"><a id="l01601" name="l01601"></a><span class="lineno"> 1601</span>    <span class="keywordflow">return</span> 0;                                                            <span class="comment">/* success return 0 */</span></div>

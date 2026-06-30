@@ -1591,11 +1591,11 @@ uint8_t tea5767_frequency_convert_to_data(tea5767_handle_t *handle, uint16_t pll
     
     if (hlsi != 0)                                                       /* high side lo injection */
     {
-        *mhz = (pll * f / 4.0f - 255.0f) / 1000.0f;                      /* convert raw data to real data */
+        *mhz = (pll * f / 4.0f - 225.0f) / 1000.0f;                      /* convert raw data to real data */
     }                                                                    /* low side lo injection */
     else
     {
-        *mhz = (pll * f / 4.0f + 255.0f) / 1000.0f;                      /* convert raw data to real data */
+        *mhz = (pll * f / 4.0f + 225.0f) / 1000.0f;                      /* convert raw data to real data */
     }
     
     return 0;                                                            /* success return 0 */
