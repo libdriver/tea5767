@@ -1511,7 +1511,7 @@ uint8_t tea5767_frequency_convert_to_register(tea5767_handle_t *handle, float mh
              | ((handle->conf_up[3] >> 4) & 0x01);                       /* get the clock */
     if (clk == 0x00)                                                     /* 13MHz */
     {
-        f = 13000.0f;                                                    /* 13MHz */
+        f = 50.0f;                                                       /* 13MHz */
     }
     else if (clk == 0x01)                                                /* 32.768KHz */
     {
@@ -1519,7 +1519,7 @@ uint8_t tea5767_frequency_convert_to_register(tea5767_handle_t *handle, float mh
     }
     else if (clk == 0x02)                                                /* 6.5MHz */
     {
-        f = 6500.0f;                                                     /* 6.5MHz */
+        f = 50.0f;                                                       /* 6.5MHz */
     }
     else
     {
@@ -1572,7 +1572,7 @@ uint8_t tea5767_frequency_convert_to_data(tea5767_handle_t *handle, uint16_t pll
              | ((handle->conf_up[3] >> 4) & 0x01);                       /* get the clock */
     if (clk == 0x00)                                                     /* 13MHz */
     {
-        f = 13000.0f;                                                    /* 13MHz */
+        f = 50.0f;                                                       /* 13MHz */
     }
     else if (clk == 0x01)                                                /* 32.768KHz */
     {
@@ -1580,7 +1580,7 @@ uint8_t tea5767_frequency_convert_to_data(tea5767_handle_t *handle, uint16_t pll
     }
     else if (clk == 0x02)                                                /* 6.5MHz */
     {
-        f = 6500.0f;                                                     /* 6.5MHz */
+        f = 50.0f;                                                       /* 6.5MHz */
     }
     else
     {
