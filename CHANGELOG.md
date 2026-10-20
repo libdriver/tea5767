@@ -1,3 +1,9 @@
+## 1.0.8 (2026-10-20)
+
+## Bug Fixes
+
+- fix freq bugs
+
 ## 1.0.7 (2026-06-30)
 
 ## Bug Fixes
